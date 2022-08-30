@@ -49,7 +49,46 @@ function sumNumbers(nums) {
 sumNumbers(numbers);
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixArray) {
+  if (mixArray.length === 0) {
+    return 0;
+  } else if (mixArray.length === 1) {
+    if (typeof mixArray[0] === 'number') {
+      return mixArray[0];
+    }
+  }
+  let allElements = 0;
+  for (let idx = 0; idx < mixArray.length; idx++) {
+    if (mixArray[idx] === 0) {
+      return allElements;
+    }
+  }
+
+  let sunOfNums = 0;
+  for (let idx = 0; idx < mixArray.length; idx++) {
+    if (typeof mixArray[idx] === 'number') {
+      sunOfNums = sunOfNums + mixArray[idx];
+    } else if (typeof mixArray[idx] === 'string') {
+      sunOfNums = sunOfNums + mixArray[idx].length;
+    } else if (typeof mixArray[idx] === 'boolean') {
+      if (mixArray[idx] === true) {
+        sunOfNums = sunOfNums + 1;
+      } else {
+        sunOfNums = sunOfNums + 0;
+      }
+    } else if (typeof mixArray[idx] === 'object') {
+      throw new Error(`Unsupported data type sir or ma'am`);
+    } else if (typeof mixArray[idx] === 'array') {
+      throw new Error(`Unsupported data type sir or ma'am`);
+    }
+  }
+  return sunOfNums;
+}
+sum(numbers);
+
+//  else if (typeof mixArray[idx] == array || typeof mixArray[idx] == object) {
+//       throw new Error('An explanatory error message');
+//     }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers

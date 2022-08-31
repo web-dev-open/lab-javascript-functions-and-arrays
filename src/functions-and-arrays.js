@@ -10,12 +10,14 @@ function maxOfTwoNumbers(num1 = 0, num2 = 0) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  let word = "";
+  let word = '';
   for (let i = 0; i < arr.length; i++){
-    if (word.length < arr[i].length) {
+    if ( typeof arr == undefined){
+      return null;
+    }else if (word.length < arr[i].length) {
       word = arr[i]
     }
-  }return word
+  }return word 
 
 }
 
@@ -38,7 +40,20 @@ function sumNumbers(arr = 0) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sumNum = 0;
+  let numBoolean = ""
+  for (let i = 0; i < arr.length; i++){
+    if(typeof arr[i] == "boolean"){
+      numBoolean = arr[i].toString()
+      sumNum += numBoolean.length
+    }else if(typeof arr[i] == "string"){
+      sumNum += arr[i].length
+    }else if(typeof arr[i] == "number"){
+      sumNum += arr[i]
+    }
+  }return sumNum
+}
 
 
 
@@ -164,7 +179,16 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let max = 0
+  let totalNum = 0
+  for (let i = 0; i< arr.length; i++){
+    for (let j = 0; j < arr[i].length; j++){
+      totalNum = arr[i][j] * arr[i-1][j-1] * arr[i+1][j+1] * arr[i+2][j+2]
+      max = Math.max(totalNum)
+    } 
+  }return max
+}
 
 
 

@@ -25,7 +25,7 @@ function findLongestWord(wordArray) {
   }
 }
 
-console.log(findLongestWord(words));
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -86,15 +86,23 @@ function sum(mixArray) {
 }
 sum(numbers);
 
-//  else if (typeof mixArray[idx] == array || typeof mixArray[idx] == object) {
-//       throw new Error('An explanatory error message');
-//     }
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(someArray) {
+  if (someArray.length === 0) {
+    return null;
+  } else if (someArray.length === 1) {
+    return someArray[0];
+  }
+  let lenOfArr = someArray.length;
+  let sum = 0;
+  for (let idx = 0; idx < someArray.length; idx++) {
+    sum = sum + someArray[idx];
+  }
+  return sum / lenOfArr;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];

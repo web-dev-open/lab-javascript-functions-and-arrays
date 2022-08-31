@@ -90,12 +90,20 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 //   return sunOfNums;
 // }
 
-function averageWordLength(someArray) {
-  if (someArray.length === 0) {
-    return null;
-  } else if (someArray.length === 1) {
-    return someArray[0].length;
-  }
+// function averageWordLength(someArray) {
+//   if (someArray.length === 0) {
+//     return null;
+//   } else if (someArray.length === 1) {
+//     return someArray[0].length;
+//   }
+// }
+
+// console.log(averageWordLength(['rootlearn']));
+
+let arr = ['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'];
+
+function doesWordExist(someArray, wordForSearch) {
+  return someArray.includes(wordForSearch);
 }
 
-console.log(averageWordLength(['rootlearn']));
+console.log(doesWordExist(arr, 'book'));

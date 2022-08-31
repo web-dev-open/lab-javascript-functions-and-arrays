@@ -157,12 +157,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(someArray) {
+  if (someArray.length === 0) {
+    return null;
+  }
+  for (let idx = 0; idx < someArray.length; idx++) {
+    const result = someArray.some((ele) => {
+      if (someArray.indexOf(ele) !== someArray.lastIndexOf(ele)) return true;
+    });
+    return false;
+  }
+  if (true) {
+    return [someArray[0]];
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(someArray, wordForSearch) {
+  if (someArray.length === 0) {
+    return null;
+  } else if (someArray[0] === wordForSearch) {
+    return true;
+  }
+  for (let idx = 0; idx < someArray.length; idx++) {
+    return someArray.includes(wordForSearch);
+  }
+}
+
+doesWordExist(wordsFind, 'machine');
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -179,7 +203,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(someArray) {}
 
 // Iteration #8: Bonus
 const matrix = [

@@ -107,10 +107,40 @@ function averageNumbers(someArray) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength(someArray) {
+  if (someArray.length === 0) {
+    return null;
+  } else if (someArray.length === 1) {
+    return someArray[0].length;
+  }
+  let sum = 0;
+  for (let idx = 0; idx < someArray.length; idx++) {
+    sum = sum + someArray[idx].length;
+  }
+  return sum / someArray.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(someArray) {
+  if (someArray.length === 0) {
+    return null;
+  }
+  let sunOfNums = 0;
+  for (let idx = 0; idx < someArray.length; idx++) {
+    if (typeof someArray[idx] === 'number') {
+      sunOfNums = sunOfNums + someArray[idx];
+    } else if (typeof someArray[idx] === 'string') {
+      sunOfNums = sunOfNums + someArray[idx].length;
+    } else if (typeof someArray[idx] === 'boolean') {
+      if (someArray[idx] === true) {
+        sunOfNums = sunOfNums + 1;
+      } else {
+        sunOfNums = sunOfNums + 0;
+      }
+    }
+  }
+  return sunOfNums / someArray.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [

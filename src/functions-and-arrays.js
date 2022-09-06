@@ -1,41 +1,117 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else if (b > a) {
+    return b;
+  } else {
+    return a, b;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(longWord) {
+  let longestWord = 0;
 
-
-
+  for (let i = 0; i < longWord.length; i++) {
+    if (longWord[i].length === 1) {
+      return longWord;
+    }
+    if (longWord[i].length > longestWord) {
+      longestWord = longWord[i];
+      return longestWord;
+    }
+    if (longWord[i].length < longestWord) {
+      break;
+    }
+  }
+  if (longWord.length != 0) {
+    return longestWord;
+  } else {
+    return null;
+  }
+}
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array.length === 1) {
+      sum += array[i];
+    } else {
+      sum += array[i];
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(array) {
+  let sum = 0;
+  let average = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  average = sum / array.length;
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  let sum = 0;
+  let average = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i].length;
+  }
+  average = sum / array.length;
+  return average;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sum = 0;
+  let average = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] == 'number') {
+      sum += arr[i];
+    }
+    if (typeof arr[i] == 'boolean') {
+      if (arr[i] === true) {
+        sum += 1;
+      } else {
+        sum += 0;
+      }
+    }
+    if (typeof arr[i] == 'string') {
+      sum += arr[i].length;
+    }
+  }
+  if (arr.length != 0) {
+    average = sum / arr.length;
+    return average;
+  } else {
+    return null;
+  }
+
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +128,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(words) {
+  let newArr = [];
+  for (let i = 0; i < array.length; i++) {
+    if (words.indexOf(words[i]) == -1) {
+      words.slice(words[i]);
+    }
+    if (words.indexOf(words[i]) == 1) {
+      newArr.pop(words[i]);
+    }
+  }
+  return newArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(words, wordSearch) {
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === wordSearch) {
+      return true;
+    }
+    if (words.includes(wordSearch)) {
+      return true;
+    }
+    if (words == []) {
+      return null;
+    } else {
+      return false;
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +175,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(words, wordSearch) {
+  let sum = 0;
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === wordSearch) {
+      sum += 1;
+    }
+  }
+  return sum;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +210,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

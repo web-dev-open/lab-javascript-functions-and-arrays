@@ -13,18 +13,11 @@ function maxOfTwoNumbers(a, b) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(longWord) {
-  let longestWord = 0;
+  let longestWord = '';
 
   for (let i = 0; i < longWord.length; i++) {
-    if (longWord[i].length === 1) {
-      return longWord;
-    }
-    if (longWord[i].length > longestWord) {
+    if (longWord[i].length > longestWord.length) {
       longestWord = longWord[i];
-      return longestWord;
-    }
-    if (longWord[i].length < longestWord) {
-      break;
     }
   }
   if (longWord.length != 0) {
@@ -50,6 +43,9 @@ function sum(array) {
   for (let i = 0; i < array.length; i++) {
     if (typeof array[i] != 'string' && typeof array[i] != 'number' && typeof array[i] != 'boolean') {
       throw new Error("Unsupported data type sir or ma'am");
+    }
+    if (typeof array[i] == 'string') {
+      sum += array[i].length;
     } else {
       if (array.length === 1) {
         sum += array[i];
@@ -141,6 +137,9 @@ const wordsUnique = [
 function uniquifyArray(words) {
   let newArr = [];
   for (let i = 0; i < words.length; i++) {
+    // if(words[i] == words.indexOf(words[i]) {
+    //   words.slice(words[i]);
+    // }
     if (words.indexOf(words[i]) == -1) {
       words.slice(words[i]);
     }

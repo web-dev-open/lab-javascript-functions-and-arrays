@@ -48,10 +48,14 @@ function sumNumbers(array) {
 function sum(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    if (array.length === 1) {
-      sum += array[i];
+    if (typeof array[i] != 'string' && typeof array[i] != 'number' && typeof array[i] != 'boolean') {
+      throw new Error("Unsupported data type sir or ma'am");
     } else {
-      sum += array[i];
+      if (array.length === 1) {
+        sum += array[i];
+      } else {
+        sum += array[i];
+      }
     }
   }
   return sum;
@@ -67,8 +71,12 @@ function averageNumbers(array) {
   for (let i = 0; i < array.length; i++) {
     sum += array[i];
   }
-  average = sum / array.length;
-  return average;
+  if (array.length != 0) {
+    average = sum / array.length;
+    return average;
+  } else {
+    return null;
+  }
 }
 
 // Level 2: Array of strings
@@ -80,8 +88,12 @@ function averageWordLength(array) {
   for (let i = 0; i < array.length; i++) {
     sum += array[i].length;
   }
-  average = sum / array.length;
-  return average;
+  if (array.length != 0) {
+    average = sum / array.length;
+    return average;
+  } else {
+    return null;
+  }
 }
 
 // Bonus - Iteration #4.1
@@ -109,8 +121,6 @@ function avg(arr) {
   } else {
     return null;
   }
-
-  return average;
 }
 
 // Iteration #5: Unique arrays
@@ -130,7 +140,7 @@ const wordsUnique = [
 
 function uniquifyArray(words) {
   let newArr = [];
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < words.length; i++) {
     if (words.indexOf(words[i]) == -1) {
       words.slice(words[i]);
     }
@@ -138,7 +148,11 @@ function uniquifyArray(words) {
       newArr.pop(words[i]);
     }
   }
-  return newArr;
+  if (words.length != 0) {
+    return newArr;
+  } else {
+    return null;
+  }
 }
 
 // Iteration #6: Find elements
@@ -157,6 +171,11 @@ function doesWordExist(words, wordSearch) {
     } else {
       return false;
     }
+  }
+  if (words.length != 0) {
+    return newArr;
+  } else {
+    return null;
   }
 }
 

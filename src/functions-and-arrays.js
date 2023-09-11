@@ -60,16 +60,25 @@ console.log(sum(mixedArr));
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() { }
+function averageNumbers(numbers) {
+  const average = sumNumbers(numbers) / numbers.length;
+  return average;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  const averageLength = sum(wordsArr) / wordsArr.length;
+  return averageLength;
+}
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg(array) {
+  const average = sum(array) / array.length;
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [

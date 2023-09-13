@@ -12,6 +12,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(words) {
   let longestWord = '';
+  if (words.length === 0) return null;
   for (let i = 0; i < words.length; i++) {
     const singleWord = words[i];
     if (singleWord.length > longestWord.length) {
@@ -47,6 +48,8 @@ function sum(array) {
       sum += eachItem.length;
     } else if (typeof eachItem === 'boolean') {
       sum += Number(eachItem);
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return sum;
@@ -61,6 +64,7 @@ console.log(sum(mixedArr));
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
+  if (numbers.length === 0) return null;
   const average = sumNumbers(numbers) / numbers.length;
   return average;
 }
@@ -70,12 +74,14 @@ function averageNumbers(numbers) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) return null;
   const averageLength = sum(wordsArr) / wordsArr.length;
   return averageLength;
 }
 
 // Bonus - Iteration #4.1
 function avg(array) {
+  if (array.length === 0) return null;
   const average = sum(array) / array.length;
   return average;
 }
@@ -97,6 +103,7 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
   let uniqueArray = [];
+  if (arr.length === 0) return null;
   for (let i = 0; i < arr.length; i++) {
     if (uniqueArray.indexOf(arr[i]) === -1) {
       uniqueArray.push(arr[i]);
@@ -109,6 +116,7 @@ function uniquifyArray(arr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsArray, wordToFind) {
+  if (wordsArray.length === 0) return null;
   return wordsArray.includes(wordToFind);
 }
 
@@ -128,9 +136,10 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsArray, wordToCount) {
+  if (wordsArray.length === 0) return 0;
   let wordCount = 0;
-  for (let i = 0; i < wordsArr.length; i++) {
-    if (wordToCount === wordsArray[i]) {
+  for (let i = 0; i <= wordsArr.length; i++) {
+    if (wordsArray[i] === wordToCount) {
       wordCount++;
     }
   }

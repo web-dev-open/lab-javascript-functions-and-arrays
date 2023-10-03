@@ -1,24 +1,76 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num_1,num_2) {
+  if(num_1 > num_2){
+    return num_1;
+  }
+  else{
+    return num_2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (!Array.isArray(words) || words.length === 0) {
+    return null;
+  }
+
+  let longestWord = words[0];
+
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if (!Array.isArray(numbers) || numbers.length === 0) {
+    return 0;  // If the array is empty or not an array, return 0.
+  }
+
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];  // Add each element to the sum.
+  }
+
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (!Array.isArray(arr) || arr.some(item => typeof item !== 'number' && typeof item !== 'string' && typeof item !== 'boolean')) {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
+
+  let totalSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    if (typeof element === 'number') {
+      totalSum += element;  // For numbers, just add them to the total sum.
+    } else if (typeof element === 'string') {
+      totalSum += element.length;  // For strings, add their length to the total sum.
+    } else if (typeof element === 'boolean') {
+      totalSum += element ? 1 : 0;  // Coerce booleans to 1 (true) or 0 (false) and add to the total sum.
+    }
+  }
+
+  return totalSum;
+}
 
 
 
@@ -26,16 +78,74 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (!Array.isArray(numbers) || numbers.length === 0) {
+    return null;  // If the array is empty or not an array, return 0.
+  }
+
+  const totalSum = sumNumbers(numbers);
+  const average = totalSum / numbers.length;
+
+  return average;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) { 
+  if (!Array.isArray(words) || words.length === 0) {
+    return null;  // If the array is empty or not an array, return 0.
+  }
+
+  let totalLength = 0;
+  let wordCount = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    if (typeof words[i] === 'string') {
+      totalLength += words[i].length;  // Add the length of each word to the total length.
+      wordCount++;
+    }
+  }
+  if (wordCount === 0) {
+    return 0;  // Return 0 if no valid words are found in the array.
+  }
+  const average = totalLength / wordCount;
+
+  return average;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return null;  // If the array is empty or not an array, return null.
+  }
+
+  let totalSum = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    if (typeof element === 'number' && !isNaN(element)) {
+      totalSum += element;  // For numbers, just add them to the total sum.
+      count++;
+    } else if (typeof element === 'string') {
+      totalSum += element.length;  // For strings, add their length to the total sum.
+      count++;
+    } else if (typeof element === 'boolean') {
+      totalSum += element ? 1 : 0;  // Coerce booleans to 1 (true) or 0 (false) and add to the total sum.
+      count++;
+    }
+  }
+
+  if (count === 0) {
+    return 0;
+  }
+
+  const average = totalSum / count;
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +162,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return null;  // If the input is not a valid array or is empty, return null.
+  }
+
+  const uniqueArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    // Check if the element is not already in the uniqueArray
+    if (!uniqueArray.includes(element)) {
+      uniqueArray.push(element);
+    }
+  }
+
+  return uniqueArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, wordToSearch) {
+  if (!Array.isArray(wordsArray) || wordsArray.length === 0) {
+    return null;  // If the input is not a valid array or is empty, return false.
+  }
+
+  return wordsArray.includes(wordToSearch);
+}
 
 
 
@@ -78,7 +211,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray, wordToSearch) {
+  if (!Array.isArray(wordsArray) || wordsArray.length === 0) {
+    return 0;  // If the input is not an array or is empty, return 0.
+  }
+
+  let count = 0;
+
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === wordToSearch) {
+      count++;  // Increment the count for each occurrence of the word.
+    }
+  }
+
+  return count;
+}
 
 
 
@@ -106,7 +253,37 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  if (!Array.isArray(matrix) || matrix.length < 4) {
+    return 0;
+  }
+
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  let maxProduct = 0;
+
+  // Check horizontally
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols - 3; j++) {
+      const product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Check vertically
+  for (let i = 0; i < rows - 3; i++) {
+    for (let j = 0; j < cols; j++) {
+      const product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  return maxProduct;
+}
 
 
 

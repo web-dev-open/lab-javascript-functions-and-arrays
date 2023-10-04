@@ -53,7 +53,7 @@ function sum(mixedItems) {
   return sumNumbers(newNumbersArray);
 }
 
-console.log(sum(mixedArr));
+
 
 
 
@@ -61,7 +61,11 @@ console.log(sum(mixedArr));
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  return sumNumbers(numbers) / numbers.length;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings

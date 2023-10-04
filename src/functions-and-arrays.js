@@ -34,9 +34,26 @@ function sumNumbers(numbers) {
 }
 
 
-console.log(sumNumbers(numbers));
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
+function sum(mixedItems) {
+  let newNumbersArray = [];
+
+  for(const item of mixedItems){
+    if(typeof item === 'string'){
+      newNumbersArray.push(item.length);
+    }else{
+      newNumbersArray.push(item);
+    }
+  }
+
+  return sumNumbers(newNumbersArray);
+}
+
+console.log(sum(mixedArr));
 
 
 

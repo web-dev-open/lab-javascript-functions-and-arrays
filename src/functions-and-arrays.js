@@ -10,9 +10,13 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(words) {
   let longestWord = '';
   
-  for(let i = 0; i < words.length; i++){
-    if(words[i].length > longestWord.length){
-      longestWord = words[i];
+  if(words.length === 0)
+    return null;
+  else{
+    for(let i = 0; i < words.length; i++){
+      if(words[i].length > longestWord.length){
+        longestWord = words[i];
+      }
     }
   }
   return longestWord;
@@ -43,11 +47,13 @@ function sum(mixedItems) {
   let newNumbersArray = [];
 
   for(const item of mixedItems){
-    if(typeof item === 'string'){
+    if(typeof item === 'object')
+      throw new Error('Unsupported data type sir or ma\'am');
+    else if(typeof item === 'string')
       newNumbersArray.push(item.length);
-    }else{
+    else
       newNumbersArray.push(item);
-    }
+    
   }
 
   return sumNumbers(newNumbersArray);
@@ -62,6 +68,9 @@ function sum(mixedItems) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
+  if (numbers.length === 0)
+    return null;
+
   return sumNumbers(numbers) / numbers.length;
 }
 
@@ -71,7 +80,9 @@ console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength() { 
+
+}
 
 // Bonus - Iteration #4.1
 function avg() {}

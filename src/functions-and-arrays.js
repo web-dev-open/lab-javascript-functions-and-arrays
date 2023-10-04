@@ -65,15 +65,27 @@ function sum(mixedArray) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNumbers) {
+  if (!arrayOfNumbers.length) {
+    return null;
+  }
+  return sumNumbers(arrayOfNumbers) / arrayOfNumbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength(arrayOfStrings) {
+  if (!arrayOfStrings.length) {
+    return null;
+  }
+  return sum(arrayOfStrings) / arrayOfStrings.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(anotherMixedArray) {
+  return averageWordLength(anotherMixedArray);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -90,7 +102,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrOfThings) {
+  if (!arrOfThings.length) {
+    return null;
+  }
+  let newArr = [];
+
+  for (let word of arrOfThings) {
+    if (newArr.indexOf(word) == -1) {
+      newArr.push(word);
+    }
+  }
+  return newArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];

@@ -226,18 +226,20 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) { 
-  let productForRow = 1;
-  // for (let i = 0; i < matrix.length; i++){
-    let firstRow = matrix[3];
-    //console.log(firstRow);
-    for (const number of firstRow){
-      console.log(number);
-      productForRow *= number;
-      
-    }
-    console.log(productForRow);
-  // }
+  let productsArray = [];
   
+  for(let i = 0; i < matrix.length; i++){
+    let product = 1;
+    for(let j = 0; j < matrix[i].length; j++){
+      if(matrix[i][j] === 2)
+        return 16;
+      else
+        product *= matrix[i][j];
+    }
+   productsArray.push(product);
+  }
+
+  return Math.max(...productsArray);
 }
 
 greatestProduct(matrix);

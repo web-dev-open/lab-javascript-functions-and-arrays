@@ -241,7 +241,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+const matrix2 = [
+  [1,2,3],
+  [4,5,6],
+  [1,2,3]
+]
+
+function greatestProductDiagonally(matrix) {
+   let row = matrix.length;
+   let col = matrix[0].length;
+   let prod =1;
+
+   for(let i=0; i<row; i++){
+    
+       prod = prod * matrix[i][i]
+    
+   }
+   console.log(prod)
+}
+greatestProductDiagonally(matrix2)
+
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

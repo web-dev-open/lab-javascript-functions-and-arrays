@@ -1,5 +1,13 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers() {
+  if (a > b){
+    return a;
+  } else {
+    return b;
+  }
+}
+let maxNumber = (30, 50);
+console.log(maxNumber);
 
 
 

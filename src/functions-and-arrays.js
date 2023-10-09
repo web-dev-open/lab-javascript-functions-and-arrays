@@ -50,6 +50,7 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 // Iteration #3.1 Bonus:
+// Iteration #3.1 Bonus:
 function sum(mixedArr) {
   let sum = 0;
   for (let i = 0; i < mixedArr.length; i++) {
@@ -60,19 +61,24 @@ function sum(mixedArr) {
     } else if (typeof mixedArr[i] === 'boolean') {
       sum += Number(mixedArr[i]);
     } else if (Array.isArray(mixedArr[i]) || typeof mixedArr[i] === 'object') {
-      console.error('Unsupported data type (object or array) found in the array');
-      return;
+      throw new Error('Unsupported data type (object or array) found in the array');
     }
   }
   return sum;
 }
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+try {
+  let total = sum(mixedArr);
+  console.log(total);
+} catch (error) {
+  console.error(error.message);
+}
+
 //Bonus: Calculate the sum > should throw an error when unsupported data ty (object or array) present in the array
 //calculate the average of  an array of strings > should return null if receives an empty array when called
 //calculate the average of an array of numbers > should return null if receives an empty array when called
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-// should return: 57
-let total = sum(mixedArr);
-console.log(total);
+
 
 
 
@@ -82,15 +88,21 @@ console.log(total);
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+
   let sum = 0;
-  for (let i = 0; i < numbers.length; i++){
+  for (let i = 0; i < numbers.length; i++) {
     sum += numbers[i];
   }
-  return sum/numbers.length;
+  return sum / numbers.length;
 }
+
 let average = averageNumbers(numbersAvg);
 console.log(average);
-
+let emptyAve = averageNumbers(emptyArr);
+console.log(emptyAve); // Should print null for an empty array
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -125,6 +137,8 @@ const mixedAr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 let averageArr = avg(mixedAr);
 console.log(averageArr); 
+let emptyAverage = averageWordLength(emptyArr);
+console.log(emptyAverage); // Should print null for an empty array
 
 // Iteration #5: Unique arrays
 const wordsUnique = [

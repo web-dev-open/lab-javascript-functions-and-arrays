@@ -48,8 +48,8 @@ function sumNumbers(numbers) {
  console.log(sumTotal);
 
 
-// Iteration #3.1 Bonus:
-// Iteration #3.1 Bonus:
+
+
 // Iteration #3.1 Bonus:
 function sum(mixedArr) {
   let sum = 0;
@@ -61,7 +61,7 @@ function sum(mixedArr) {
     } else if (typeof mixedArr[i] === 'boolean') {
       sum += Number(mixedArr[i]);
     } else if (Array.isArray(mixedArr[i]) || typeof mixedArr[i] === 'object') {
-      throw new Error('Unsupported data type (object or array) found in the array');
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return sum;
@@ -75,10 +75,7 @@ try {
   console.error(error.message);
 }
 
-//Bonus: Calculate the sum > should throw an error when unsupported data ty (object or array) present in the array
-//calculate the average of  an array of strings > should return null if receives an empty array when called
-//calculate the average of an array of numbers > should return null if receives an empty array when called
-
+//
 
 
 
@@ -89,56 +86,76 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
   if (numbers.length === 0) {
-    return null;
+    return null; // Return null for empty arrays
   }
 
-  let sum = 0;
+  let sumAv = 0;
   for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+    sumAv += numbers[i];
   }
-  return sum / numbers.length;
+  return sumAv / numbers.length;
 }
 
+const emptyArr = []; // An empty array
+const averageLengthy = averageNumbers(emptyArr);
+console.log(averageLengthy); // This will return 'null' for an empty array.
+
+// Corrected function call:
 let average = averageNumbers(numbersAvg);
 console.log(average);
-let emptyAve = averageNumbers(emptyArr);
-console.log(emptyAve); // Should print null for an empty array
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(words) { 
+  if (words.length === 0) {
+    return null; // Return null for empty arrays
+  } else if (words.length === 1) {
+    return words[0].length; // Return the length of the only element in the array
+  }
+
   let sum = 0;
   for (let i = 0; i < words.length; i++){
     sum += words[i].length;
   }
-  return sum/words.length;
+  return sum / words.length; // Corrected variable name to 'sum'
 }
+
 let averageLength = averageWordLength(wordsArr);
 console.log(averageLength);
 
+
 // Bonus - Iteration #4.1
 function avg(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++){
-    if (typeof arr[i] === 'number'){
-      sum += arr[i];
-    } else if (typeof arr[i] === 'string'){
-      sum += arr[i].length;
-    } else if (typeof arr[i] === 'boolean'){
-      sum += Number(arr[i]);
+  if (arr.length === 0) {
+    return null; // Return null for empty arrays
+  }
+
+  let sumN = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      sumN += arr[i];
+    } else if (typeof arr[i] === 'string') {
+      sumN += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+      sumN += Number(arr[i]);
     }
   }
-  return sum/arr.length
+  return sumN / arr.length;
 }
 
-const mixedAr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-// should return: 5.7
+const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+let averageArr = avg(mixedArr1);
+console.log(averageArr); // should return 5.7
 
-let averageArr = avg(mixedAr);
-console.log(averageArr); 
-let emptyAverage = averageWordLength(emptyArr);
+const emptyArr1 = []; // Define an empty array
+let emptyAverage = avg(emptyArr1);
 console.log(emptyAverage); // Should print null for an empty array
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -156,16 +173,22 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(words) {
+  if (words.length === 0) {
+    return null;
+  }
+
   let uniqueWords = [];
-  for (let i = 0; i < words.length; i++){
-    if (uniqueWords.indexOf(words[i])=== -1){
+  for (let i = 0; i < words.length; i++) {
+    if (uniqueWords.indexOf(words[i]) === -1) {
       uniqueWords.push(words[i]);
     }
   }
   return uniqueWords;
 }
+
 let uniqueWords = uniquifyArray(wordsUnique);
 console.log(uniqueWords);
+
 
 
 

@@ -55,12 +55,22 @@ function averageNumbers() {
   return avg;
 }
 
-console.log(averageNumbers(numbersAvg))
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength() {
+ let totalLetters = 0;
+ let wordCount = wordsArr.length;
+ for (let l = 0; l < wordCount; l++){
+  totalLetters += wordsArr[l].length;
+ }
+ const avgLen = totalLetters/wordCount;
+ return avgLen;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg() {}

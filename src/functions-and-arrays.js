@@ -38,9 +38,6 @@ function sumNumbers() {
 
 console.log(sumNumbers(numbers));
 
-// Iteration #3.1 Bonus:
-function sum() {}
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -72,9 +69,6 @@ function averageWordLength() {
 
 console.log(averageWordLength(wordsArr));
 
-// Bonus - Iteration #4.1
-function avg() {}
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -100,7 +94,7 @@ function uniquifyArray(words) {
   return uniqueWords;
 }
 
-console / log(uniquifyArray(words));
+console.log(uniquifyArray(words));
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
@@ -130,16 +124,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(words, arr) {
+function howManyTimes(word, arr) {
   let count = 0;
-  for (let p = 0; p > arr.length; p++) {
-    if (arr[p] === words) {
+  for (let p = 0; p < arr.length; p++) {
+    if (arr[p] === word) {
       count++;
     }
   }
   return count;
 }
-console.log(howManyTimes('matter', wordsCount));
+
+console.log(howManyTimes('matter', wordsCount)); 
+
 
 // Iteration #8: Bonus
 const matrix = [
@@ -165,7 +161,32 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
+  let maxProduct = 0;
+
+  for (let row = 0; row < numRows; row++) {
+    for (let col = 0; col < numCols; col++) {
+      // Check horizontally (right)
+      if (col + 3 < numCols) {
+        const productHorizontal = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 3];
+        maxProduct = Math.max(maxProduct, productHorizontal);
+      }
+      
+      // Check vertically (down)
+      if (row + 3 < numRows) {
+        const productVertical = matrix[row][col] * matrix[row + 1][col] * matrix[row + 2][col] * matrix[row + 3][col];
+        maxProduct = Math.max(maxProduct, productVertical);
+      }
+    }
+  }
+
+  return maxProduct;
+}
+
+const result = greatestProduct(matrix);
+console.log(result);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

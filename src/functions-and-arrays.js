@@ -12,7 +12,7 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
-  if(words.length === 0){
+  if(!Array.isArray(words) || words.length === 0){
     return null;
   }
   else if(words.length === 1){
@@ -34,12 +34,15 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  if(numbers.length === 0){
+  if(!Array.isArray(numbers) || numbers.length === 0){
     return 0;
   }
 
   let sum=0;
   for(let i = 0; i < numbers.length; i++){
+    if (typeof numbers[i] !== 'number') {
+      throw new Error('Unsupported data type sir or ma\'am');
+    }
     sum += numbers[i];
   }
   return sum;
@@ -52,21 +55,25 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(mixedArr) {
   if(mixedArr.length === 0)
     return 0;
+  if(!Array.isArray(mixedArr))
+    throw new Error('Unsupported data type sir or ma\'am');
 
-    let totalSum = 0;
+  let totalSum = 0;
 
-    for(let i = 0; i < mixedArr.length; i++){
-      const element = mixedArr[i];
-      if(typeof element === 'number')
-        totalSum += element;
-      else if(typeof element === 'string')
-        totalSum += element.length;
-      else if(typeof element === 'boolean')
-        totalSum += Number(element);
-    }
-    return totalSum;
+  for(let i = 0; i < mixedArr.length; i++){
+    const element = mixedArr[i];
+    if(typeof element === 'number')
+      totalSum += element;
+    else if(typeof element === 'string')
+      totalSum += element.length;
+    else if(typeof element === 'boolean')
+      totalSum += Number(element);
+      else if (typeof element === 'object' || Array.isArray(element))
+        throw new Error('Unsupported data type sir or ma\'am');
+  }
+  return totalSum;
 }
-
+module.exports = sum;
 
 
 // Iteration #4: Calculate the average
@@ -74,8 +81,8 @@ function sum(mixedArr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-  if(numbersAvg.length === 0)
-    return 0;
+  if(!Array.isArray(numbersAvg) || numbersAvg.length === 0)
+    return null;
 
   const sum = sumNumbers(numbersAvg);
   const average = sum / numbersAvg.length;
@@ -87,8 +94,8 @@ function averageNumbers(numbersAvg) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
-  if(wordsArr.length === 0)
-    return 0;
+  if(!Array.isArray(wordsArr) || wordsArr.length === 0)
+    return null;
   const totalLength = wordsArr.reduce((sum, word) => sum + word.length, 0);
   const averageWordLengthResult = totalLength / wordsArr.length;
   return averageWordLengthResult;
@@ -97,8 +104,8 @@ function averageWordLength(wordsArr) {
 // Bonus - Iteration #4.1
 
 function avg(mixedArr) {
-  if(mixedArr.length === 0)
-    return 0;
+  if(!Array.isArray(mixedArr) || mixedArr.length === 0)
+    return null;
 
   const mixedArrSum = sum(mixedArr);
   const mixedArrAverage = mixedArrSum / mixedArr.length;
@@ -128,6 +135,9 @@ function uniquifyArray(wordsUnique) {
       uniqueWordsArray.push(word);
     }
   }
+
+  if(uniqueWordsArray.length === 0)
+    return null;
   return uniqueWordsArray;
 }
 
@@ -137,6 +147,9 @@ function uniquifyArray(wordsUnique) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 const targetWord = 'starting';
 function doesWordExist(wordsFind, targetWord) {
+  if(wordsFind.length === 0)
+    return null;
+
   for(const word of wordsFind){
     if(word === targetWord)
       return true;

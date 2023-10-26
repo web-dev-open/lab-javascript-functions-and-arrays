@@ -120,14 +120,29 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  const uniqueWordsArray = [];
+
+  for(const word of wordsUnique){
+    if(uniqueWordsArray.indexOf(word) === -1){
+      uniqueWordsArray.push(word);
+    }
+  }
+  return uniqueWordsArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
+const targetWord = 'starting';
+function doesWordExist(wordsFind, targetWord) {
+  for(const word of wordsFind){
+    if(word === targetWord)
+      return true;
+  }
+  return false;
+}
 
 
 
@@ -145,8 +160,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+const targetCountWord = 'matter';
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, targetCountWord) {
+  let count = 0;
+  for(const word of wordsCount){
+    if(word === targetCountWord)
+      count++;
+  }
+  return count;
+}
 
 
 
@@ -174,8 +197,53 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
+  let maxProduct = 0;
 
+  // check horizontally
+  for(let row = 0; row < numRows; row++){
+    for(let col = 0; col <= numCols-4; col++){
+      const product = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 3]; 
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // check vertically
+  for(let row = 0; row <= numRows-4; row++){
+    for(let col = 0; col < numCols; col++){
+      const product = matrix[row][col] * matrix[row + 1][col] * matrix[row + 2][col] * matrix[row + 3][col]; 
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+  return maxProduct;
+}
+
+// Iteration #8.1 : Bonus
+function greatestProductOfDiagonals(matrix) {
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
+  let maxProduct = 0;
+
+  // Check diagonals from top-left to bottom-right
+  for (let row = 0; row <= numRows - 4; row++) {
+    for (let col = 0; col <= numCols - 4; col++) {
+      const product = matrix[row][col] * matrix[row + 1][col + 1] * matrix[row + 2][col + 2] * matrix[row + 3][col + 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Check diagonals from top-right to bottom-left
+  for (let row = 0; row <= numRows - 4; row++) {
+    for (let col = 3; col < numCols; col++) {
+      const product = matrix[row][col] * matrix[row + 1][col - 1] * matrix[row + 2][col - 2] * matrix[row + 3][col - 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  return maxProduct;
+}
 
 
 

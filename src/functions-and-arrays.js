@@ -157,7 +157,19 @@ function averageWordLength(wordsArray) {
 console.log(`      * The average is: ${averageWordLength(wordsArr)}`);
 
 // Bonus - Iteration #4.1
-function avg() {}
+console.log("\nBonus - Iteration #4.1");
+
+// For this fucntion I will recicle a code I made in Interaction 3.1 (The generic Sum)
+function avg(elementsArray) {
+  // Since we're using the generic SUM function.
+  let elementsAverage = sum(elementsArray) / elementsArray.length;
+
+  return elementsAverage;
+
+}
+
+//Showing the result.
+console.log (`   * The average of the Elements Array is ${avg(mixedArray)}. Rehusing code is easy and practical!!`);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [

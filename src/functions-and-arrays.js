@@ -1,25 +1,112 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+console.log("\nIteration #1: Find the maximum");
 
+function maxOfTwoNumbers(num1, num2) {
 
+  // With a if conditional stament compared the numbers
+  if(num1 > num2) {
+    // if num1 is bigger
+    return `The number ${num1} is bigger than ${num2}`;
+
+    // if not...
+  } else {
+    return `   * The number ${num2} is bigger than ${num1}`;
+  }
+
+}
+
+//Print the result
+console.log(maxOfTwoNumbers(48, 50));
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+console.log("\nIteration #2: Find longest word");
 
-function findLongestWord() {}
+// In this array we have to find the longest word
+const words = ['mystery', 'brother', 'Guadalajara', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+// Declare the function
+function findLongestWord(wordsArray) {
+  // Let's create a variable to hold the longest word in the iteraction.
+  let longestWord = "";
 
+  // For loop to go over the array.
+  for(let i = 0; i < wordsArray.length; i ++) {
+
+    // if statement to compare the longest word.
+    if(wordsArray[i].length > longestWord.length) {
+
+      // Keep the the longestWord from the array.
+      longestWord = wordsArray[i];
+    }
+  }
+
+  // Return the longest word.
+  return longestWord;
+
+}
+
+// Print the result.
+console.log(`   * The longest word is: ${findLongestWord(words)}`);
 
 // Iteration #3: Calculate the sum
+console.log("\nIteration #3: Calculate the sum.");
+
+// We have those numbers:
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+// We want to add all the numbers of the array
+function sumNumbers(numbersArray) {
+  
+  // Create a variable total to keep the result and initialice it.
+  let total = 0;
 
+  // For... of... loop to take over the array
+  for(let number of numbers) {
 
+    // Add the number into the total.
+    total += number;
+  }
+
+  // Return the total.
+  return total;
+}
+
+// Print the result
+console.log(`   * The sum of all the numbers in the Array is: ${sumNumbers(numbers)}`);
 
 // Iteration #3.1 Bonus:
-function sum() {}
+console.log("\nIteration #3.1 Bonus:");
 
+// We have this Array and want to sum it (number as a number boolean as a 0 and 1 and string length).
+const mixedArray = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(elementsArray) {
+  
+  // Create a variable to hold the total while looping the array.
+  let total = 0;
+
+  // For... of... loop to take over the array.  
+  for(let element of elementsArray) {
+
+    // We use here an if statement with typeof to identify numbers and booleans and then add them.
+    if(typeof element === "boolean" || typeof element === "number" ) {
+
+      // We add the element to the total.
+      total += element;
+
+      // an else if to identy the string and add it but its lenght
+    } else if (typeof element === "string") {
+
+      // add the length to the total
+      total += element.length;
+    }
+  }
+
+  return total;
+}
+
+// Print the result.
+console.log(`   * The mixed sum of mixedArray is: ${sum(mixedArray)} which are numbers, boolean (0 or 1) and the length of string.`);
 
 
 // Iteration #4: Calculate the average
@@ -128,3 +215,5 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+console.log("\n");

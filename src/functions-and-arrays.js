@@ -61,7 +61,7 @@ function sumNumbers(numbersArray) {
   let total = 0;
 
   // For... of... loop to take over the array
-  for(let number of numbers) {
+  for(let number of numbersArray) {
 
     // Add the number into the total.
     total += number;
@@ -110,10 +110,20 @@ console.log(`   * The mixed sum of mixedArray is: ${sum(mixedArray)} which are n
 
 
 // Iteration #4: Calculate the average
+console.log("\nIteration #4: Calculate the average\n   Level 1: Array of Numbers.");
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNumbers) {
+
+  // I am going to rehutiize the function sumNumbers and divide it between the length of the array.
+  return sumNumbers(arrayOfNumbers) / arrayOfNumbers.length;
+  
+}
+
+// Show the result
+console.log(`   * The average is ${averageNumbers(numbersAvg)} rehusing functions is fun!!`);
 
 
 // Level 2: Array of strings

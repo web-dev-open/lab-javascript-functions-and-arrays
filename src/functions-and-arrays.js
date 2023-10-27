@@ -123,13 +123,38 @@ function averageNumbers(arrayOfNumbers) {
 }
 
 // Show the result
-console.log(`   * The average is ${averageNumbers(numbersAvg)} rehusing functions is fun!!`);
+console.log(`      * The average is ${averageNumbers(numbersAvg)}. Rehusing functions is fun!!`);
 
 
 // Level 2: Array of strings
+console.log("\nIteration #4: Calculate the average\n   Level 2: Array of strings.");
+
+// Here's the array of words
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) { 
+
+  // We use a if statement to add the words
+  // So if it is zero, we stop it.
+  if(wordsArray.length === 0) {
+    return 0;
+  }
+
+  // We use a variable to take over.
+  let arrayLength = 0;
+
+  // Looping over the array
+  for(let i = 0; i < wordsArray.length; i++) {
+    arrayLength += wordsArray[i].length;
+  }
+
+  // Calculate the average by dividing arrayLength by the number of words
+  let arrayAverage = arrayLength / wordsArray.length;
+  return arrayAverage;
+}
+
+// Showing the result.
+console.log(`      * The average is: ${averageWordLength(wordsArr)}`);
 
 // Bonus - Iteration #4.1
 function avg() {}

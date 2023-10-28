@@ -186,7 +186,29 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+console.log("\nIteration #5: Unique arrays.");
+
+function uniquifyArray(uniqueWords) {
+
+  // Create an empty Array to store the unique values
+  let uniqueWordsArray = [];
+
+  // Loop throug the array with a for of loop
+  for (let word of uniqueWords) {
+    
+    // With an if statement we take over the array to compare with indexof and -1 which means it is a not found value.
+    if(uniqueWordsArray.indexOf(word) === -1) {
+
+      // Save the unique valies in the array with push
+      uniqueWordsArray.push(word);   
+    }
+  }
+    // Return the total of repeated values.
+    return uniqueWordsArray    
+}
+
+// Show the result with Console.log
+console.log(`   * The unique values are: ${uniquifyArray(wordsUnique)}`);
 
 
 

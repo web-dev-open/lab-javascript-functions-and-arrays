@@ -192,7 +192,7 @@ function uniquifyArray(uniqueWords) {
 
   // Create an empty Array to store the unique values
   let uniqueWordsArray = [];
-
+  
   // Loop throug the array with a for of loop
   for (let word of uniqueWords) {
     
@@ -213,6 +213,7 @@ console.log(`   * The unique values are: ${uniquifyArray(wordsUnique)}`);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let findWord = "eating";
 
 console.log("\nIteration #6: Find elements.");
 
@@ -236,10 +237,13 @@ function doesWordExist(wordsArray, word) {
   }
 
 // Showing the result.
-console.log(`   * The word was found on the array: ${doesWordExist(wordsFind, "eating")}`);
+console.log(`   * The word ${findWord} was found on the array: ${doesWordExist(wordsFind, findWord)}`);
 
 
 // Iteration #7: Count repetition
+console.log("\n Iteration #7: Count repetition. ")
+
+// Array
 const wordsCount = [
   'machine',
   'matter',
@@ -254,7 +258,34 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+let wordCount = "matter"
+
+// Declaration of the function
+function howManyTimes(arr, wrd) {
+
+  // Lets declare a counter and initialize it.
+  let count = 0;
+
+  // For loop to take over the array
+  for(let i = 0; i < arr.length; i ++) {
+    
+    // If statement to validate the information and count
+    if(arr[i] === wrd) {
+      
+      // Adding to the counter
+      count ++;
+    }
+  }
+
+  // Return the result
+  return count;
+}
+
+// Let's print to see if it works.
+console.log(`   * The word ${wordCount} repeats ${howManyTimes(wordsCount, wordCount)} time(s).`);
+
+
+
 
 
 

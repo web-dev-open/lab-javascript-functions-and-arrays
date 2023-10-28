@@ -211,12 +211,32 @@ function uniquifyArray(uniqueWords) {
 console.log(`   * The unique values are: ${uniquifyArray(wordsUnique)}`);
 
 
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+console.log("\nIteration #6: Find elements.");
 
+// Declare the function and pass the array and the word to find
+function doesWordExist(wordsArray, word) {
+
+  // We use a for loop to go througt the array
+  for(let i = 0; i < wordsArray.length; i++) {
+
+    // Using an if statement to determine if the word is in the array marks it as true, if not false
+    if(wordsArray[i] === word) {
+      
+      // if value found
+      return true;
+      } 
+    
+    }
+    // If value wasn't found
+    return false;
+
+  }
+
+// Showing the result.
+console.log(`   * The word was found on the array: ${doesWordExist(wordsFind, "eating")}`);
 
 
 // Iteration #7: Count repetition

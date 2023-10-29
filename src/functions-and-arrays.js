@@ -284,6 +284,8 @@ function howManyTimes(arr, wrd) {
 // Let's print to see if it works.
 console.log(`   * The word ${wordCount} repeats ${howManyTimes(wordsCount, wordCount)} time(s).`);
 
+// Iteration #8: Bonus
+
 const sampleMatrix = [
   [ 1, 2, 3, 4, 5],
 
@@ -296,7 +298,6 @@ const sampleMatrix = [
   [ 1, 4, 3, 4, 5]
 ]
 
-// Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -383,7 +384,40 @@ function greatestProduct(givenMatrix) {
 // Show the result:
 console.log(`   * The greatest product in the Given Matrix: \n\n${matrix} \n\nis ${greatestProduct(matrix)} Pretty interesting. Uh?`);
 
+// Bonus - Iteration #8.1: Product of diagonals.
+console.log("\nBonus - Iteration #8.1: Product of diagonals.");
 
+// Funtion to find greatestProductOfDiagonals.
+function greatestProductOfDiagonals(givenArray) {
+
+  // Let's declare a variable to keep the product.
+  let maxDiagonalProduct = 0;
+
+  // Iteraction through the rows except the last 3 ones
+  for(let i = 0; i < givenArray.length -3; i++) {
+
+    // Iteraction throug the columns except of the last 3 ones
+    for(let j = 0; j < givenArray[i].length -3; j++) {
+
+      // Iteraction through the diagonal products
+      // Create variable diagonalProduct1 to update the values
+      let diagonalProduct1 = givenArray[i][j] * givenArray[i + 1][j + 1] * givenArray[i + 2][j + 2] * givenArray[i + 3][j + 3];
+
+      // Create variable diagonalProduct2 to update the values.
+      let diagonalProduct2 = givenArray[i ][j + 3] * givenArray[i + 1][j + 2] * givenArray[i + 2][j + 1] * givenArray[i + 3][j]
+    
+      // If necesary update the max values with Math library and max function.
+      maxDiagonalProduct = Math.max(maxDiagonalProduct, diagonalProduct1, diagonalProduct2); 
+    }
+  }
+
+  // Return the max value
+  return maxDiagonalProduct;
+
+}
+
+// Show the result.
+console.log(`   * The greatest Product of Diagonals is ${greatestProductOfDiagonals(sampleMatrix)} of the matrix: \n${sampleMatrix}.`);
 
 
 // The following is required to make unit tests work.

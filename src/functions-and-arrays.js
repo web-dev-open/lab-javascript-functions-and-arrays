@@ -1,41 +1,175 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+console.log("\nIteration #1: Find the maximum");
 
+function maxOfTwoNumbers(num1, num2) {
 
+  // With a if conditional stament compared the numbers
+  if(num1 > num2) {
+    // if num1 is bigger
+    return `The number ${num1} is bigger than ${num2}`;
+
+    // if not...
+  } else {
+    return `   * The number ${num2} is bigger than ${num1}`;
+  }
+
+}
+
+//Print the result
+console.log(maxOfTwoNumbers(48, 50));
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+console.log("\nIteration #2: Find longest word");
 
-function findLongestWord() {}
+// In this array we have to find the longest word
+const words = ['mystery', 'brother', 'Guadalajara', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+// Declare the function
+function findLongestWord(wordsArray) {
+  // Let's create a variable to hold the longest word in the iteraction.
+  let longestWord = "";
 
+  // For loop to go over the array.
+  for(let i = 0; i < wordsArray.length; i ++) {
+
+    // if statement to compare the longest word.
+    if(wordsArray[i].length > longestWord.length) {
+
+      // Keep the the longestWord from the array.
+      longestWord = wordsArray[i];
+    }
+  }
+
+  // Return the longest word.
+  return longestWord;
+
+}
+
+// Print the result.
+console.log(`   * The longest word is: ${findLongestWord(words)}`);
 
 // Iteration #3: Calculate the sum
+console.log("\nIteration #3: Calculate the sum.");
+
+// We have those numbers:
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+// We want to add all the numbers of the array
+function sumNumbers(numbersArray) {
+  
+  // Create a variable total to keep the result and initialice it.
+  let total = 0;
 
+  // For... of... loop to take over the array
+  for(let number of numbersArray) {
 
+    // Add the number into the total.
+    total += number;
+  }
+
+  // Return the total.
+  return total;
+}
+
+// Print the result
+console.log(`   * The sum of all the numbers in the Array is: ${sumNumbers(numbers)}`);
 
 // Iteration #3.1 Bonus:
-function sum() {}
+console.log("\nIteration #3.1 Bonus:");
 
+// We have this Array and want to sum it (number as a number boolean as a 0 and 1 and string length).
+const mixedArray = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(elementsArray) {
+  
+  // Create a variable to hold the total while looping the array.
+  let total = 0;
+
+  // For... of... loop to take over the array.  
+  for(let element of elementsArray) {
+
+    // We use here an if statement with typeof to identify numbers and booleans and then add them.
+    if(typeof element === "boolean" || typeof element === "number" ) {
+
+      // We add the element to the total.
+      total += element;
+
+      // an else if to identy the string and add it but its lenght
+    } else if (typeof element === "string") {
+
+      // add the length to the total
+      total += element.length;
+    }
+  }
+
+  return total;
+}
+
+// Print the result.
+console.log(`   * The mixed sum of mixedArray is: ${sum(mixedArray)} which are numbers, boolean (0 or 1) and the length of string.`);
 
 
 // Iteration #4: Calculate the average
+console.log("\nIteration #4: Calculate the average\n   Level 1: Array of Numbers.");
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNumbers) {
+
+  // I am going to rehutiize the function sumNumbers and divide it between the length of the array.
+  return sumNumbers(arrayOfNumbers) / arrayOfNumbers.length;
+  
+}
+
+// Show the result
+console.log(`      * The average is ${averageNumbers(numbersAvg)}. Rehusing functions is fun!!`);
 
 
 // Level 2: Array of strings
+console.log("\nIteration #4: Calculate the average\n   Level 2: Array of strings.");
+
+// Here's the array of words
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) { 
+
+  // We use a if statement to add the words
+  // So if it is zero, we stop it.
+  if(wordsArray.length === 0) {
+    return 0;
+  }
+
+  // We use a variable to take over.
+  let arrayLength = 0;
+
+  // Looping over the array
+  for(let i = 0; i < wordsArray.length; i++) {
+    arrayLength += wordsArray[i].length;
+  }
+
+  // Calculate the average by dividing arrayLength by the number of words
+  let arrayAverage = arrayLength / wordsArray.length;
+  return arrayAverage;
+}
+
+// Showing the result.
+console.log(`      * The average is: ${averageWordLength(wordsArr)}`);
 
 // Bonus - Iteration #4.1
-function avg() {}
+console.log("\nBonus - Iteration #4.1");
+
+// For this fucntion I will recicle a code I made in Interaction 3.1 (The generic Sum)
+function avg(elementsArray) {
+  // Since we're using the generic SUM function.
+  let elementsAverage = sum(elementsArray) / elementsArray.length;
+
+  return elementsAverage;
+
+}
+
+//Showing the result.
+console.log (`   * The average of the Elements Array is ${avg(mixedArray)}. Rehusing code is easy and practical!!`);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,18 +186,64 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+console.log("\nIteration #5: Unique arrays.");
 
+function uniquifyArray(uniqueWords) {
+
+  // Create an empty Array to store the unique values
+  let uniqueWordsArray = [];
+  
+  // Loop throug the array with a for of loop
+  for (let word of uniqueWords) {
+    
+    // With an if statement we take over the array to compare with indexof and -1 which means it is a not found value.
+    if(uniqueWordsArray.indexOf(word) === -1) {
+
+      // Save the unique valies in the array with push
+      uniqueWordsArray.push(word);   
+    }
+  }
+    // Return the total of repeated values.
+    return uniqueWordsArray    
+}
+
+// Show the result with Console.log
+console.log(`   * The unique values are: ${uniquifyArray(wordsUnique)}`);
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let findWord = "eating";
 
-function doesWordExist() {}
+console.log("\nIteration #6: Find elements.");
 
+// Declare the function and pass the array and the word to find
+function doesWordExist(wordsArray, word) {
+
+  // We use a for loop to go througt the array
+  for(let i = 0; i < wordsArray.length; i++) {
+
+    // Using an if statement to determine if the word is in the array marks it as true, if not false
+    if(wordsArray[i] === word) {
+      
+      // if value found
+      return true;
+      } 
+    
+    }
+    // If value wasn't found
+    return false;
+
+  }
+
+// Showing the result.
+console.log(`   * The word ${findWord} was found on the array: ${doesWordExist(wordsFind, findWord)}`);
 
 
 // Iteration #7: Count repetition
+console.log("\n Iteration #7: Count repetition. ")
+
+// Array
 const wordsCount = [
   'machine',
   'matter',
@@ -78,11 +258,46 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+let wordCount = "matter"
 
+// Declaration of the function
+function howManyTimes(arr, wrd) {
 
+  // Lets declare a counter and initialize it.
+  let count = 0;
+
+  // For loop to take over the array
+  for(let i = 0; i < arr.length; i ++) {
+    
+    // If statement to validate the information and count
+    if(arr[i] === wrd) {
+      
+      // Adding to the counter
+      count ++;
+    }
+  }
+
+  // Return the result
+  return count;
+}
+
+// Let's print to see if it works.
+console.log(`   * The word ${wordCount} repeats ${howManyTimes(wordsCount, wordCount)} time(s).`);
 
 // Iteration #8: Bonus
+
+const sampleMatrix = [
+  [ 1, 2, 3, 4, 5],
+
+  [ 1, 20, 3, 4, 5],
+
+  [ 1, 20, 3, 4, 5],
+
+  [ 1, 20, 3, 4, 5],
+
+  [ 1, 4, 3, 4, 5]
+]
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -106,9 +321,103 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+console.log("\nBonus - Iteration #8: Product of adjacent numbers.");
 
+function greatestProduct(givenMatrix) {
+  // Let's initialice the varialbe to keep the largest product
+  let maxProduct = 0;
 
+  // Horizontal Iteraction.
+  // For Loop to interact each row the exept the last 3 (that's why -3)
+  for(let i = 0; i < givenMatrix.length -3; i++) {
+    
+    // Now let interact for each column except the last 3 (the same like in the roes)
+    for(let j = 0; j < givenMatrix.length -3; j++) {
+
+      // Calculate the horizontally product
+      let horizontalProduct = givenMatrix[i][j] * givenMatrix[i][j + 1] * givenMatrix[i][j + 2] * givenMatrix[i][j + 3];
+
+      // Update the product if current product is larger with max function of Math.
+      maxProduct = Math.max(maxProduct, horizontalProduct);
+    } 
+  }
+
+  // Vertical Iteraction.
+  // Iterate through each row except the last 3
+  for(let i = 0; i < givenMatrix.length - 3; i++) {
+
+    // Now lets iterate each column except the last 3
+    for(let j = 0; j < givenMatrix.length - 3; j++) {
+      
+      // Calculate the product vertically
+      let verticalProduct = givenMatrix[i][j] * givenMatrix[i + 1][j] * givenMatrix[i + 2][j] * givenMatrix[i + 3][j];
+
+      // Update the max product if current product is larger with max function
+      maxProduct = Math.max(maxProduct, verticalProduct);
+    }
+  }
+
+  // Diagonal Iteraction
+  // Interact with each row except the last one.
+  for(let i = 0; i < givenMatrix.length -3; i++) {
+
+    // Now iteract with each column except the last one
+    for(let j = 0; j < givenMatrix[i].length -3; j++) {
+
+      // Create diagonalProduct1 variable to calculate product diagonally.
+      let diagonalProduct1 = givenMatrix[i][j] * givenMatrix[i + 1][j + 1] * givenMatrix[i + 2][j + 2] * givenMatrix[i + 3][j + 3];
+      
+      // Create diagonalProduct2 variable to calcualte the alternate diagonal
+      let diagonalProduct2 = givenMatrix[i][j + 3] * givenMatrix[i + 1][j + 2] * givenMatrix[i + 2][j + 1] * givenMatrix[i + 3][j];
+    
+      // Update maxProduct if any diagonal is larger with Math library function max
+      maxProduct = Math.max(maxProduct, diagonalProduct1, diagonalProduct2);
+
+    }
+  }
+
+  // Finally return the max value
+  return maxProduct;
+
+}
+
+// Show the result:
+console.log(`   * The greatest product in the Given Matrix: \n\n${matrix} \n\nis ${greatestProduct(matrix)} Pretty interesting. Uh?`);
+
+// Bonus - Iteration #8.1: Product of diagonals.
+console.log("\nBonus - Iteration #8.1: Product of diagonals.");
+
+// Funtion to find greatestProductOfDiagonals.
+function greatestProductOfDiagonals(givenArray) {
+
+  // Let's declare a variable to keep the product.
+  let maxDiagonalProduct = 0;
+
+  // Iteraction through the rows except the last 3 ones
+  for(let i = 0; i < givenArray.length -3; i++) {
+
+    // Iteraction throug the columns except of the last 3 ones
+    for(let j = 0; j < givenArray[i].length -3; j++) {
+
+      // Iteraction through the diagonal products
+      // Create variable diagonalProduct1 to update the values
+      let diagonalProduct1 = givenArray[i][j] * givenArray[i + 1][j + 1] * givenArray[i + 2][j + 2] * givenArray[i + 3][j + 3];
+
+      // Create variable diagonalProduct2 to update the values.
+      let diagonalProduct2 = givenArray[i ][j + 3] * givenArray[i + 1][j + 2] * givenArray[i + 2][j + 1] * givenArray[i + 3][j]
+    
+      // If necesary update the max values with Math library and max function.
+      maxDiagonalProduct = Math.max(maxDiagonalProduct, diagonalProduct1, diagonalProduct2); 
+    }
+  }
+
+  // Return the max value
+  return maxDiagonalProduct;
+
+}
+
+// Show the result.
+console.log(`   * The greatest Product of Diagonals is ${greatestProductOfDiagonals(sampleMatrix)} of the matrix: \n${sampleMatrix}.`);
 
 
 // The following is required to make unit tests work.
@@ -128,3 +437,5 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+console.log("\n");

@@ -284,10 +284,17 @@ function howManyTimes(arr, wrd) {
 // Let's print to see if it works.
 console.log(`   * The word ${wordCount} repeats ${howManyTimes(wordsCount, wordCount)} time(s).`);
 
+const sampleMatrix = [
+  [ 1, 2, 3, 4, 5],
 
+  [ 1, 20, 3, 4, 5],
 
+  [ 1, 20, 3, 4, 5],
 
+  [ 1, 20, 3, 4, 5],
 
+  [ 1, 4, 3, 4, 5]
+]
 
 // Iteration #8: Bonus
 const matrix = [
@@ -313,7 +320,68 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+console.log("\nBonus - Iteration #8: Product of adjacent numbers.");
+
+function greatestProduct(givenMatrix) {
+  // Let's initialice the varialbe to keep the largest product
+  let maxProduct = 0;
+
+  // Horizontal Iteraction.
+  // For Loop to interact each row the exept the last 3 (that's why -3)
+  for(let i = 0; i < givenMatrix.length -3; i++) {
+    
+    // Now let interact for each column except the last 3 (the same like in the roes)
+    for(let j = 0; j < givenMatrix.length -3; j++) {
+
+      // Calculate the horizontally product
+      let horizontalProduct = givenMatrix[i][j] * givenMatrix[i][j + 1] * givenMatrix[i][j + 2] * givenMatrix[i][j + 3];
+
+      // Update the product if current product is larger with max function of Math.
+      maxProduct = Math.max(maxProduct, horizontalProduct);
+    } 
+  }
+
+  // Vertical Iteraction.
+  // Iterate through each row except the last 3
+  for(let i = 0; i < givenMatrix.length - 3; i++) {
+
+    // Now lets iterate each column except the last 3
+    for(let j = 0; j < givenMatrix.length - 3; j++) {
+      
+      // Calculate the product vertically
+      let verticalProduct = givenMatrix[i][j] * givenMatrix[i + 1][j] * givenMatrix[i + 2][j] * givenMatrix[i + 3][j];
+
+      // Update the max product if current product is larger with max function
+      maxProduct = Math.max(maxProduct, verticalProduct);
+    }
+  }
+
+  // Diagonal Iteraction
+  // Interact with each row except the last one.
+  for(let i = 0; i < givenMatrix.length -3; i++) {
+
+    // Now iteract with each column except the last one
+    for(let j = 0; j < givenMatrix[i].length -3; j++) {
+
+      // Create diagonalProduct1 variable to calculate product diagonally.
+      let diagonalProduct1 = givenMatrix[i][j] * givenMatrix[i + 1][j + 1] * givenMatrix[i + 2][j + 2] * givenMatrix[i + 3][j + 3];
+      
+      // Create diagonalProduct2 variable to calcualte the alternate diagonal
+      let diagonalProduct2 = givenMatrix[i][j + 3] * givenMatrix[i + 1][j + 2] * givenMatrix[i + 2][j + 1] * givenMatrix[i + 3][j];
+    
+      // Update maxProduct if any diagonal is larger with Math library function max
+      maxProduct = Math.max(maxProduct, diagonalProduct1, diagonalProduct2);
+
+    }
+  }
+
+  // Finally return the max value
+  return maxProduct;
+
+}
+
+// Show the result:
+console.log(`   * The greatest product in the Given Matrix: \n\n${matrix} \n\nis ${greatestProduct(matrix)} Pretty interesting. Uh?`);
 
 
 

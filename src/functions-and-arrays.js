@@ -22,7 +22,6 @@ function findLongestWord(words) {
   return longestWord;
 }
 
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -34,8 +33,6 @@ function sumNumbers(numbers) {
   }
   return sum;
 }
-
-
 
 // Iteration #3.1 Bonus:
 function sum(array) {
@@ -56,8 +53,7 @@ function sum(array) {
 }
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-console.log(sum(mixedArr));
-
+// console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -68,7 +64,6 @@ function averageNumbers(numbers) {
   const average = sumNumbers(numbers) / numbers.length;
   return average;
 }
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -170,10 +165,33 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+function greatestProduct(matrix) {
+  const rows = matrix.length;
+  const columns = matrix[0].length;
+  let greatestProduct = 0;
 
+  // Check greatest horizontal product
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns - 3; j++) {
+      const horizontalProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (horizontalProduct > greatestProduct) {
+        greatestProduct = horizontalProduct;
+      }
+    }
+  }
 
+  // Check greatest vertical product
+  for (let i = 0; i < rows - 3; i++) {
+    for (let j = 0; j < columns; j++) {
+      const verticalProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (verticalProduct > greatestProduct) {
+        greatestProduct = verticalProduct;
+      }
+    }
+  }
 
+  return greatestProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

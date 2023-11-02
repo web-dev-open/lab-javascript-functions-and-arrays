@@ -10,6 +10,8 @@ console.log("largest number",largest)
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 function findLongestWord(arr) {
+  if(arr==undefined||arr==null||arr.length==0)
+    return null
   let largest=arr[0].length
   let index=0
   for(let i=1;i<arr.length;i++)
@@ -31,6 +33,8 @@ console.log("longest word is",longestWord)
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(arr) {
+  if(arr==null||arr==undefined||arr.length==0)
+   return 0;
   let sum=0;
   for(let i=0;i<arr.length;i++)
     {
@@ -46,13 +50,18 @@ console.log("sum of numbers is",sumNums);
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arr) {
+  if(arr==null||arr==undefined||arr.length==0)
+   return 0;
       let s=0;
       for(let i=0;i<arr.length;i++)
       {
-          if(typeof(arr[i])=='string')
+        let t=typeof(arr[i])
+          if(t=='string')
              s+=arr[i].length
-          else
+          else if(t=='boolean'||t=='number')
              s+=arr[i];
+          else 
+            throw new Error("Unsupported data type sir or ma'am");
       }   
   return s;
 }
@@ -64,6 +73,8 @@ console.log("sum of mixed array is",mixedSum);
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arr) {
+  if(arr==null||arr==undefined||arr.length==0)
+   return null;
   let sum=sumNumbers(arr)
   return sum/arr.length
 }
@@ -74,6 +85,8 @@ console.log("Average is",avgOfNums);
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(arr) {
+  if(arr==null||arr==undefined||arr.length==0)
+   return null;
   let s=0;
   for(let i=0;i<arr.length;i++)
     s+=arr[i].length
@@ -85,12 +98,15 @@ console.log("Average Lenght",result)
 
 // Bonus - Iteration #4.1
 function avg(arr) {
+  if(arr==null||arr==undefined||arr.length==0)
+  return null;
   let s=0;
   for(let i=0;i<arr.length;i++)
     {
-      if(typeof(arr[i])=='string')
+      let t=typeof(arr[i])
+      if(t=='string')
          s+=arr[i].length;
-      else 
+      else if(t=='boolean'||t=='number')
          s+=arr[i];
     }
   return s/arr.length;
@@ -115,6 +131,8 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
+  if(arr==null||arr==undefined||arr.length==0)
+   return null;
   let A=[];
   for(let i=0;i<arr.length;i++)
   {
@@ -133,6 +151,8 @@ console.log("Unique Array",uniqueArr);
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr,word) {
+  if(arr==null||arr==undefined||arr.length==0)
+   return null;
    for(let i=0;i<arr.length;i++)
      {
        if(arr[i]===word)
@@ -163,6 +183,8 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr,word) {
+  if(arr==null||arr==undefined||arr.length==0)
+   return 0;
   let c=0;
   for(let i=0;i<arr.length;i++)
     {

@@ -39,7 +39,25 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
+function sum(mixedArr) {
+  let sum =0;
+  for(let i=0; i<mixedArr.length; i++){
+    if(typeof mixedArr[i] === 'number'){
+      sum += mixedArr[i];
+    }else if(typeof mixedArr[i]=== 'string'){
+      sum += mixedArr[i].length;
+    }else if(typeof mixedArr[i]=== 'boolean'){
+      sum += mixedArr[i] ? 1 : 0;
+    }
+  }
+  return sum;
+}
+//console.log(sum(mixedArr));
 
 
 

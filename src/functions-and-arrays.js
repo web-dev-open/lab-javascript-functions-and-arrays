@@ -220,7 +220,17 @@ console.log(greatestProduct(matrix));
 
 
 //Iteration #8.1 Bonus
-
+function greatestProductOfDiagonals(matrix){
+  let greatestProduct = 0;
+  for(let i=0; i<matrix.length; i++){
+    for(let j=0; j<matrix[i].length; j++){
+      let diagonalRightProduct = i<matrix.length-3 && j<matrix[i].length-3 ? matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3] : 0;
+      let diagonalLeftProduct = i<matrix.length-3 && j>2 ? matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3] :0;
+      greatestProduct = Math.max(greatestProduct, diagonalRightProduct, diagonalLeftProduct);
+    }
+    return greatestProduct;
+  }
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

@@ -107,8 +107,6 @@ console.log(avg(arr));
 
 
 
-
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -124,9 +122,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(wordsUnique) {
+  let Unique =[];
+  for(i=0; i<wordsUnique.length; i++){
+    if(Unique.indexOf(wordsUnique[i]) === -1){
+      Unique.push(wordsUnique[i]);
+    // }else if(Unique.indexOf(wordsUnique[i] !==-1)){
+    //   Unique.pop(wordsUnique[i]);
+    // }
+    }
+  }
+  return Unique;
+}
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];

@@ -283,6 +283,6 @@ if (typeof module !== 'undefined') {
     uniquifyArray,
     doesWordExist,
     howManyTimes,
-    //greatestProduct
+    greatestProduct
   };
 }

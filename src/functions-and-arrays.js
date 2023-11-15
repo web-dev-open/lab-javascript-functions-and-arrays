@@ -23,19 +23,21 @@ function findLongestWord() {
   return longestWord;
 }
 
-findLongestWord();
-console.log('The longest word is:', longestWord);
+const longestWord = findLongestWord();
+console.log(`The longest word is: ${longestWord}`);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers() {
-  let sum = 0;
+  let answer = 0;
   for (let i = 0; i < numbers.length; i++) {
-    sum += sumNumbers[i];
+    answer += numbers[i];
   }
-  return sum;
+  return answer;
 }
+const sumTotal = sumNumbers();
+console.log(`The sum is: ${sumTotal}`);
 
 // Iteration #3.1 Bonus:
 function sum() {}

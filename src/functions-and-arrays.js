@@ -85,7 +85,7 @@ for(let i =0 ; i< arr.length; i++){
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function sumNumbers(numbers) {
+function sumNumbers2(numbers) {
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
     sum += numbers[i];
@@ -98,7 +98,7 @@ function averageNumbers(numbers) {
   if (numbers.length === 0){
     return null;
   }
-  const sum = sumNumbers(numbersAvg);
+  const sum = sumNumbers2(numbersAvg);
   // calculate the average by dividing the sum by number ofe elements in array
    const average = sum / numbersAvg.length;
 
@@ -134,7 +134,43 @@ console.log(result4);
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// 
+
+function avg(arr) {
+  if(arr.length === 0){
+    // return null for empty string
+    return null;
+
+  }
+    const totalNumericalValue = arr.reduce((sum, element)=> {
+      if(typeof element === 'number'){
+        //add the string as it is with its value
+        return sum + element;
+      } else if(typeof element ==='boolean'){
+        // return true as 1 and false as 0
+        return sum + (element ? 1: 0);
+      } else if (typeof element === 'string'){
+        //use the string length as the numerical value
+
+        return sum + element.length;
+    
+      }else {
+        //ignore other data types
+        return sum;
+      }
+    }, 0);
+
+    // CALCULATING THE AVERAGE BY DIVIDING THE TOTAL NUMRICAL VALUE BY THE NUMBER OF ELEMENTS
+    const average = totalNumericalValue / arr.length;
+    return average;
+
+}
+
+const result5 = avg(mixedArr2)
+console.log(result5);
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -151,15 +187,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  // usin a set to automatically remove duplicates 
+  const uniqueSet = new Set(array);
+  // converting the set back to an array
+  const uniqueArray = Array.from(uniqueSet);
+
+  return uniqueArray;
+
+}
+
+const result6 = uniquifyArray(wordsUnique);
+console.log(result6);
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordArray,wordToSearch) {
 
+  for(let i = 0; i < wordArray.length; i++){
+    // checking if the word in the array matches the word to search
+    if(wordArray[i] === wordToSearch){
+      return true;
+    }
+  }
+  //  return false if the word does not match
+  return false;
+
+}
+ const wordToSearch = 'matter'
+ const result7 = doesWordExist(wordsFind, wordToSearch);
+ console.log(result7);
 
 
 // Iteration #7: Count repetition
@@ -177,7 +237,25 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordArray, wordToSearchFor) {
+  // initialization of the counter
+  let count = 0;
+
+  for(let i = 0; i <wordArray.length; i++){
+    // checking if the current word matches the word to be searched for
+    if(wordArray[i] === wordToSearchFor){
+      // presence of match calls fo an increment in the counter
+      count++
+    }
+  }
+     return count
+}
+
+const wordToSearchFor = 'matter';
+const result8 = howManyTimes(wordsCount, wordToSearchFor);
+console.log(result8);
+
+// iteration bonus
 
 
 
@@ -205,7 +283,42 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  // initialization of variable to store greatest product
+  let maxProduct = 0;
+
+  // dimensions of matrix
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  // function to calculate product of four numbers
+  function calculateProduct(row, col, rowIncrement, colIncrement){
+
+    let product = 1;
+    for(let i=0;i<4;i++) {
+      product *=matrix[row + i* rowIncrement][col + i* colIncrement];
+    }
+    return product;
+  }
+
+  //iterating through the matrix
+  for (let row = 0; row<rows; row++){
+    for(let col = 0; col <cols; col++){
+      //checking horizontally
+      if(col + 3 < cols){
+        maxProduct = Math.max(maxProduct, calculateProduct(row, col, 0,1));
+      }
+      //checking vertically
+      if(row + 3 < rows){
+        maxProduct = Math.max(maxProduct, calculateProduct(row, col, 1,0));
+      }
+    }
+  }
+  return maxProduct;
+}
+
+const result9 = greatestProduct(matrix);
+console.log(result9);
 
 
 

@@ -60,8 +60,15 @@ console.log(mixedArrTotal);
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-function averageNumbers() {}
+function averageNumbers() {
+  let total = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    total += numbersAvg[i];
+  }
+  return total / numbersAvg.length;
+}
+let average = averageNumbers();
+console.log(average);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];

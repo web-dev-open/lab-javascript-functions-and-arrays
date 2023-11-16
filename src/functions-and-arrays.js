@@ -12,6 +12,7 @@ console.log(`${maximum} is the larger number`);
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
 function findLongestWord() {
   let longestWord = '';
 

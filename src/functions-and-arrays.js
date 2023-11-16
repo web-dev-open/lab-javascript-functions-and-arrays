@@ -83,7 +83,19 @@ let wordsAverage = averageWordLength();
 console.log(wordsAverage);
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg() {
+  let total = 0;
+  for (let i = 0; i < mixedArr2.length; i++) {
+    if (mixedArr2[i] === 'number') {
+      total += mixedArr2[i];
+    }
+    else if(mixedArr2[i] === 'string') {
+      total += mixedArr2[i].length
+    }
+    else if(mixedArr2[i] ===)
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [

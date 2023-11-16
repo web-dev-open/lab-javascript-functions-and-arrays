@@ -87,15 +87,18 @@ const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function avg() {
   let total = 0;
   for (let i = 0; i < mixedArr2.length; i++) {
-    if (mixedArr2[i] === 'number') {
+    if (typeof mixedArr2[i] === 'number') {
       total += mixedArr2[i];
+    } else if (typeof mixedArr2[i] === 'string') {
+      total += mixedArr2[i].length;
+    } else if (typeof mixedArr2[i] === 'boolean') {
+      total += mixedArr2[i] ? 1 : 0;
     }
-    else if(mixedArr2[i] === 'string') {
-      total += mixedArr2[i].length
-    }
-    else if(mixedArr2[i] ===)
   }
+  return total / mixedArr2.length;
 }
+let genericAverage = avg();
+console.log(genericAverage);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [

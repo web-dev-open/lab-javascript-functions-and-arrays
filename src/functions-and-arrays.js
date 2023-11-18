@@ -1,39 +1,47 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+// Find the maximum of two numbers
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
-
+// Using the custom function to find the maximum of two numbers
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-function findLongestWord() {}
-
+// Find the longest word in a string
+function findLongestWord(str) {
+  var strSplit = str.split(' ');
+  var longestWord = '';
+  for (var i = 0; i < strSplit.length; i++) {
+    if (strSplit[i].length > longestWord.length) {
+      longestWord = strSplit[i];
+    }
+  }
+  return longestWord;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
-
+// Find the sum of numbers in an array
+function sumNumbers(arr) {
+  return arr.reduce((acc, curr) => acc + curr, 0);
+}
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-function averageNumbers() {}
-
-
+// Find the average of numbers in an array
+function averageNumbers(arr) {
+  return sumNumbers(arr) / arr.length;
+}
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength() { }
-
+// Calculate the average word length of a sentence
+function averageWordLength(sentence) {
+  var words = sentence.split(" ");
+  var totalLength = words.reduce((acc, curr) => acc + curr.length, 0);
+  return totalLength / words.length;
+}
 // Bonus - Iteration #4.1
 function avg() {}
 
@@ -52,15 +60,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+// Find unique elements in an array
+function uniquifyArray(arr) {
+  return arr.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
+}
 
+// Find unique elements in a string array
+function uniquifystringArray(arr) {
+  return arr.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+// Check if a word exists in a string
+function doesWordExist(str, word) {
+  return str.includes(word);
+}
 
 
 // Iteration #7: Count repetition
@@ -78,8 +99,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
 
+// Count the number of times a word appears in a string
+function howManyTimes(str, word) {
+  var regex = new RegExp(word, "g");
+  return (str.match(regex) || []).length;
+}
 
 
 // Iteration #8: Bonus
@@ -106,10 +131,30 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
-
+// Find the greatest product of adjacent elements in an array
+function greatestProduct(arr) {
+  var maxProduct = 0;
+  for (var i = 0; i < arr.length - 1; i++) {
+    var product = arr[i] * arr[i + 1];
+    if (product > maxProduct) {
+      maxProduct = product;
+    }
+  }
+  return maxProduct;
+}
+// Find the greatest product from a matrix
+function greatestProductFromMatrix(matrix) {
+  let maxProduct = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 1; j++) {
+      let product = matrix[i][j] * matrix[i][j + 1];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+  return maxProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

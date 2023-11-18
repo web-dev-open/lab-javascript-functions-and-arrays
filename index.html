@@ -4,9 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./src/functions-and-arrays.js"></script>
   <title>LAB | JS Functions & Arrays</title>
 </head>
 <body>
-  <script src="./src/functions-and-arrays.js"></script>
+  <p>The maximum of 5 and 10 is: <span id="max"></span></p>
+  <p>The longest word in the given string is: <span id="longest"></span></p>
+  <p>The sum of the given array is: <span id="sum"></span></p>
+  <p>The average of the given array is: <span id="average"></span></p>
+  <p>The average word length of the given sentence is: <span id="avgWordLength"></span></p>
+  <p>The unique elements in the given array are: <span id="uniqueArr"></span></p>
+  <p>The unique elements in the given string array are: <span id="uniqueStrArr"></span></p>
+  <p>Does the word "fox" exist in the given string? <span id="exist"></span></p>
+  <p>How many times does the word "the" appear in the given string? <span id="count"></span></p>
+  <p>The greatest product of adjacent elements in the given array is: <span id="product"></span></p>
+  <p>The greatest product from the given matrix is: <span id="matrixProduct"></span></p>
+  <script>
+    // Call the functions and display their results
+    document.getElementById("max").innerText = maxOfTwoNumbers(5, 10);
+    document.getElementById("longest").innerText = findLongestWord("The quick brown fox jumped over the lazy dog");
+    document.getElementById("sum").innerText = sumNumbers([1, 2, 3, 4, 5]);
+    document.getElementById("average").innerText = averageNumbers([1, 2, 3, 4, 5]);
+    document.getElementById("avgWordLength").innerText = averageWordLength("This is a sample sentence for calculating average word length");
+    document.getElementById("uniqueArr").innerText = uniquifyArray([1, 2, 3, 4, 5, 1, 2, 3]);
+    document.getElementById("uniqueStrArr").innerText = uniquifystringArray(["apple", "banana", "apple", "orange", "banana"]);
+    document.getElementById("exist").innerText = doesWordExist("The quick brown fox jumped over the lazy dog", "fox");
+    document.getElementById("count").innerText = howManyTimes("The quick brown fox jumped over the lazy dog", "the");
+    document.getElementById("product").innerText = greatestProduct([1, 2, 3, 4, 5]);
+    document.getElementById("matrixProduct").innerText = greatestProductFromMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+  </script>
+  
 </body>
 </html>

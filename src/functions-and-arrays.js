@@ -93,10 +93,13 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
-function uniquifyArray() {}
-
-
+let res=[];
+function uniquifyArray(a) {
+    let res = Array.from(new Set(a))
+    return res
+}
+console.log(uniquifyArray(wordsUnique));
+//-------------------------------------------------------------------------------------------------------
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];

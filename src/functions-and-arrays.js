@@ -93,10 +93,15 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-let res=[];
-function uniquifyArray(a) {
-    let res = Array.from(new Set(a))
-    return res
+//let res=[];
+function uniquifyArray(wordsUnique) {
+    let res = [];
+    for (i = 0; i < wordsUnique.length; i++) {
+        if (res.indexOf(wordsUnique[i]) === -1) {
+            res.push(wordsUnique[i]);
+        }
+    }
+    return res;
 }
 console.log(uniquifyArray(wordsUnique));
 //-------------------------------------------------------------------------------------------------------

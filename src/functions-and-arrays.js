@@ -11,9 +11,14 @@ console.log(maxOfTwoNumbers(20,65));
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord() {
+    return words.sort(function(x,y){
+        return y.length - x.length;
+    })[0];
+}
+console.log(findLongestWord());
 
-
+//-------------------------------------------------------------------------------------------------------
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];

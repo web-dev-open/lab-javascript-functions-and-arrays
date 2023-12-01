@@ -34,10 +34,24 @@ console.log(sumNumbers());
 //------------------------------------------------------------------------------------------------------
 
 // Iteration #3.1 Bonus:
-function sum(a,b) {
-  return a+b;
+function sum(a) {
+  var count=0;
+for (i=0;i<a.length;i++){
+    if (a[i]===true || a[i]===false){
+        count=count+1;
+    }
+    else if (typeof a[i]=== 'number'){
+        count=count+a[i];
+    }
+    else{
+        count=count+a[i].length;
+    }
+  
 }
-console.log(sum(10,8));
+return count;
+}
+mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(sum(mixedArr));
 //-------------------------------------------------------------------------------------------------------
 
 // Iteration #4: Calculate the average
@@ -72,10 +86,24 @@ console.log(averageWordLength());
 //------------------------------------------------------------------------------------------------------
 
 // Bonus - Iteration #4.1
-function avg(a,b) {
-  return (a+b)/2;
+function sum(a) {
+  var count=0;
+for (i=0;i<a.length;i++){
+    if (a[i]===true || a[i]===false){
+        count=count+1;
+    }
+    else if (typeof a[i]=== 'number'){
+        count=count+a[i];
+    }
+    else{
+        count=count+a[i].length;
+    }
+  
 }
-console.log(avg(16,25));
+return count/a.length;
+}
+let mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(sum(mixedArr));
 
 //-------------------------------------------------------------------------------------------------------
 

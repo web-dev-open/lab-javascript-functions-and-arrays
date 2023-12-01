@@ -86,7 +86,7 @@ console.log(averageWordLength());
 //------------------------------------------------------------------------------------------------------
 
 // Bonus - Iteration #4.1
-function sum(a) {
+function sum2(a) {
   var count=0;
 for (i=0;i<a.length;i++){
     if (a[i]===true || a[i]===false){
@@ -103,7 +103,7 @@ for (i=0;i<a.length;i++){
 return count/a.length;
 }
 let mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-console.log(sum(mixedArr));
+console.log(sum2(mixedArr));
 
 //-------------------------------------------------------------------------------------------------------
 

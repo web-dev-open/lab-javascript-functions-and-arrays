@@ -50,7 +50,7 @@ for (i=0;i<a.length;i++){
 }
 return count;
 }
-mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+let mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 console.log(sum(mixedArr));
 //-------------------------------------------------------------------------------------------------------
 
@@ -102,8 +102,8 @@ for (i=0;i<a.length;i++){
 }
 return count/a.length;
 }
-let mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-console.log(sum2(mixedArr));
+let mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(sum2(mixedArr2));
 
 //-------------------------------------------------------------------------------------------------------
 

@@ -1,24 +1,60 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+   return Math.max(num1, num2);
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(word) {
+    
+  let longestWord = '';
+
+  for(let word of words) {
+    if(word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers() {
+  let sum = 0;
+
+   for(let number of numbers) {
+     sum = sum + number;
+   }
+
+  return sum;
+}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() {
+  let total = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'number') {
+      total += array[i];
+    } else if (typeof array[i] === 'string') {
+      total += array[i].length;
+    } else if (typeof array[i] === 'boolean') {
+      total += array[i] ? 1 : 0;
+    }
+  }
+  return total;
+}
 
 
 
@@ -26,16 +62,53 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  
+    if (numbersAvg.length === 0) return null;
+  
+    let sum = numbersAvg.reduce((a, b) => a + b, 0);
+    let average = sum / numbersAvg.length;
+  
+    return average;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) return null;
+
+  let lengths = words.map(word => word.length);
+  let sum = lengths.reduce((a, b) => a + b, 0);
+  let average = sum / words.length;
+
+  return average;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+  if (arr.length === 0) {
+    return null; 
+  }
+
+  const total = arr.reduce((acc, value) => {
+    if (typeof value === 'number') {
+      return acc + value;
+    } else if (typeof value === 'string') {
+      return acc + value.length;
+    } else if (typeof value === 'boolean') {
+      return acc + (value ? 1 : 0);
+    }
+    return acc;
+  }, 0);
+
+  const average = total / arr.length;
+
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +125,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+     
+    if (words.length === 0) return null;
+  
+    let uniqueWords = [];
+  
+    for (let word of words) {
+      if (!uniqueWords.includes(word)) {
+        uniqueWords.push(word);
+      }
+    }
+  
+    return uniqueWords;
+}
+
+ 
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === wordToSearch) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 
 
@@ -78,9 +174,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordToSearch) {
+  let count = 0;
 
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === wordToSearch) {
+      count++;
+    }
+  }
 
+  return count;
+}
+ 
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,7 +211,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+  let greatestProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    let row = matrix[i];
+
+    for (let j = 0; j < row.length; j++) {
+      let product = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+
+      if (product > greatestProduct) {
+        greatestProduct = product;
+      }
+    }
+  }
+
+  for (let i = 0; i < matrix.length; i++) {
+    let row = matrix[i];
+
+    for (let j = 0; j < row.length; j++) {
+      let product = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+
+      if (product > greatestProduct) {
+        greatestProduct = product;
+      }
+    }
+  }
+
+  return greatestProduct;
+}
 
 
 

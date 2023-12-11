@@ -10,17 +10,22 @@ console.log(maxOfTwoNumbers(4,5));
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
-  let longestWord = "";
-  for (let word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let longestWord = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
     }
   }
   return longestWord;
 }
 
-console.log(findLongestWord(words));
+console.log(findLongestWord(words)); // Output: crocodile
+
 
 
 
@@ -40,7 +45,30 @@ console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  let total = 0;
+  for (let element of arr) {
+    if (typeof element === 'number') {
+      total += element;
+    } else if (typeof element === 'string') {
+      total += element.length;
+    } else if (typeof element === 'boolean') {
+      total += element ? 1 : 0;
+    } else {
+      throw new Error("Unsupported data type");
+    }
+  }
+  return total;
+}
+
+// Example usage:
+const mixedArr = [6, 12, 'hello', 18, true, 16, 2, 'world', false, 10];
+console.log(sum(mixedArr)); // Output: 65
+
 
 
 
@@ -48,7 +76,20 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let sum = 0;
+  for (let number of arr) {
+    sum += number;
+  }
+  return sum / arr.length;
+}
+
+console.log(averageNumbers(numbersAvg)); // Output: 6
+
 
 
 // Level 2: Array of strings

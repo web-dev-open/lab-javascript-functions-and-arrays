@@ -181,7 +181,52 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const rows = matrix.length;
+  const columns = matrix[0].length;
+  let maxProduct = 0;
+
+  // Check horizontally
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j <= columns - 4; j++) {
+      const product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Check vertically
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = 0; j < columns; j++) {
+      const product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Check diagonally (top-left to bottom-right)
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = 0; j <= columns - 4; j++) {
+      const product =
+        matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Check diagonally (top-right to bottom-left)
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = 3; j < columns; j++) {
+      const product =
+        matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  return maxProduct;
+}
+
+// Example usage:
+const result = greatestProduct(matrix);
+console.log("Greatest product of four adjacent numbers:", result);
+
 
 
 

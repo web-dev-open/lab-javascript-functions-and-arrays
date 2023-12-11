@@ -1,19 +1,41 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
+
+console.log(maxOfTwoNumbers(4,5));
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord = "";
+  for (let word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
+
+console.log(findLongestWord(words));
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (let number of numbers) {
+    sum += number;
+  }
+  return sum;
+}
+
+console.log(sumNumbers(numbers));
 
 
 
@@ -32,10 +54,38 @@ function averageNumbers() {}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let totalLength = 0;
+  for (let word of arr) {
+    totalLength += word.length;
+  }
+  return totalLength / arr.length;
+}
+
+console.log(averageWordLength(wordsArr)); // Output: 5.5
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let sum = 0;
+  for (let number of arr) {
+    sum += number;
+  }
+  return sum / arr.length;
+}
+
+// Example usage:
+const num = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+console.log(avg(num)); // Output: 8.7
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +102,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let uniqueArray = [];
+  for (let word of arr) {
+    if (uniqueArray.indexOf(word) === -1) {
+      uniqueArray.push(word);
+    }
+  }
+  return uniqueArray;
+}
+
+console.log(uniquifyArray(wordsUnique));
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  return arr.includes(word);
+}
+
+console.log(doesWordExist(wordsFind, 'subset')); // Output: true
+console.log(doesWordExist(wordsFind, 'hello')); // Output: false
+
+
 
 
 
@@ -78,7 +149,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (let w of arr) {
+    if (w === word) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(howManyTimes(wordsCount, 'matter')); // Output: 4
+console.log(howManyTimes(wordsCount, 'disobedience')); // Output: 1
 
 
 
@@ -106,8 +188,38 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatestProduct = 0;
 
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j + 3 < matrix[i].length) {
+        // Horizontal product
+        let horizontalProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        greatestProduct = Math.max(greatestProduct, horizontalProduct);
+      }
+      if (i + 3 < matrix.length) {
+        // Vertical product
+        let verticalProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        greatestProduct = Math.max(greatestProduct, verticalProduct);
+      }
+      if (i + 3 < matrix.length && j + 3 < matrix[i].length) {
+        // Diagonal product (top-left to bottom-right)
+        let diagonalProduct1 = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+        greatestProduct = Math.max(greatestProduct, diagonalProduct1);
+      }
+      if (i + 3 < matrix.length && j - 3 >= 0) {
+        // Diagonal product (top-right to bottom-left)
+        let diagonalProduct2 = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+        greatestProduct = Math.max(greatestProduct, diagonalProduct2);
+      }
+    }
+  }
+
+  return greatestProduct;
+}
+
+console.log(greatestProduct(matrix)); // Output: (the greatest product of four adjacent numbers)
 
 
 

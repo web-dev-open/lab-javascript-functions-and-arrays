@@ -13,6 +13,7 @@ function findLongestWord(wordsArray) {
     return null;
   }
 
+  
   let longestWord = wordsArray[0];
 
   for (let i = 1; i < wordsArray.length; i++) {

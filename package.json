@@ -34,5 +34,12 @@
     "printWidth": 120,
     "singleQuote": true,
     "trailingComma": "none"
-  }
+  },
+  "description": "<img src=\"https://imgur.com/XOS1Vdh.png\"  width=\"150px\" height=\"150px\">",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": ""
 }

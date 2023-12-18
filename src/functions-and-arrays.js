@@ -1,20 +1,55 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 > num2){
+    return num1;
+  }else{
+    return num2;
+  }
+}
+const themaximun = maxOfTwoNumbers(1,6);
+console.log(themaximun);
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr)  {
+  if (arr.length === 0) {
+    return null; // Devolver una cadena vacía si el array está vacío
+  }
 
+  let longestWord = arr[0]; // Inicializar con la primera palabra del array
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+
+  return longestWord;
+}
+
+const longest = findLongestWord(words);
+console.log(longest); 
 
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
 
+
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0; // Devolver 0 si el array está vacío.
+  }
+  const sum = numbers.reduce((total, num) => total + num, 0);
+  return sum;
+}
+
+const plus = sumNumbers(numbers);
+console.log(plus);
 
 
 // Iteration #3.1 Bonus:
@@ -26,13 +61,44 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null; // Devolver null si el array está vacío.
+  }
+  const sum = numbersAvg.reduce((total, num) => total + num, 0);
+  const average = sum/numbersAvg.length;
+  return average;
+    
+  }
+  
+const avge = averageNumbers(numbersAvg);
+console.log(avge);
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArray) {
+  if (wordArray.length === 0) {
+    return null; // Return 0 if the array is empty
+  }
+
+  let totalLength = 0;
+
+  for (let i = 0; i < wordArray.length; i++) {
+    totalLength += wordArray[i].length;
+  }
+
+  const average = totalLength / wordArray.length;
+  return average;
+}
+
+// Test the function
+const avgLength = averageWordLength(words);
+console.log(`Average word length ${avgLength}`);
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +118,48 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null; // Devolver null si el array está vacío.
+  }
+  let results = [];
+  for (var i = 0; i < wordsUnique.length; i++) {
+    if (results.indexOf(wordsUnique[i]) == -1) {
+      //console.log(`New veggies collection is: ${wordsUnique}`);
+      results.push(wordsUnique[i]);
+    }
+  }
+  return results;
+}
+const newarray = uniquifyArray(wordsUnique);
+console.log(newarray);
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, search) {
+  if (wordsFind.length === 0) {
+    return null; // Devolver null si el array está vacío.
+  }
+  for (let i=0; i< wordsFind.length; i++ ){
+    if (wordsFind[i] === search){
+      return true;
+    } 
+  }
+  return false;  
+}
+const search = 'matter';
+const exists = doesWordExist(wordsFind,search);
+console.log(`Does "${search}" exist:? ${exists}`);
+/*
+if( wordsExists){
+  console.log(`The word ${search} exists in the array`);
+}else{
+  console.log(`The word ${search} no exists in the array`);
+}
+*/
 
 
 
@@ -78,7 +178,25 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordA, searchWord) {
+  if (howManyTimes.length === 0) {
+    return null; // Devolver null si el array está vacío.
+  }
+  let cant = 0;
+
+  for (let i = 0; i < wordA.length; i++) {
+    if (wordA[i] === searchWord) {
+      cant++;
+    }
+  }
+    return cant;
+}
+const times = "matter";
+const wordsC = howManyTimes(wordsCount, times);
+console.log(`The word "${times}" appears ${wordsC} times in the array.`);
+
+
+
 
 
 

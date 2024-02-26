@@ -1,73 +1,41 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(num1, num2) {
-  if (num1 > num2) {
-    return num1;
-  } else {
-    return num2;
-  }
-}
+function maxOfTwoNumbers() {}
 
-console.log(maxOfTwoNumbers(4, 5));
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {
-  let longestWord = '';
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].length > longestWord.length) {
-      longestWord = words[i];
-    }
-  }
+function findLongestWord() {}
 
-  return longestWord;
-}
 
-console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {
-  let totalSum = 0;
-  for (let j = 0; j < numbers.length; j++) {
-    totalSum += numbers[j];
-  }
-  return totalSum;
-}
+function sumNumbers() {}
 
-console.log(sumNumbers(numbers));
+
+
+// Iteration #3.1 Bonus:
+function sum() {}
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
-  let total = 0;
-  let length = numbersAvg.length;
-  for (let k = 0; k < length; k++) {
-    total += numbersAvg[k];
-  }
-  const avg = total / length;
-  return avg;
-}
+function averageNumbers() {}
 
-console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {
-  let totalLetters = 0;
-  let wordCount = wordsArr.length;
-  for (let l = 0; l < wordCount; l++) {
-    totalLetters += wordsArr[l].length;
-  }
-  const avgLen = totalLetters / wordCount;
-  return avgLen;
-}
+function averageWordLength() { }
 
-console.log(averageWordLength(wordsArr));
+// Bonus - Iteration #4.1
+function avg() {}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -84,30 +52,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(words) {
-  const uniqueWords = [];
-  for (let m = 0; m < words.length; m++) {
-    if (!uniqueWords.includes(words[m])) {
-      uniqueWords.push(words[m]);
-    }
-  }
-  return uniqueWords;
-}
+function uniquifyArray() {}
 
-console.log(uniquifyArray(words));
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(word, array) {
-  for (let n = 0; n < array.length; n++) {
-    if (array[n] === word) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
-console.log(doesWordExist('machine', wordsFind));
+function doesWordExist() {}
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -124,17 +78,8 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(word, arr) {
-  let count = 0;
-  for (let p = 0; p < arr.length; p++) {
-    if (arr[p] === word) {
-      count++;
-    }
-  }
-  return count;
-}
+function howManyTimes() {}
 
-console.log(howManyTimes('matter', wordsCount)); 
 
 
 // Iteration #8: Bonus
@@ -161,32 +106,10 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix) {
-  const numRows = matrix.length;
-  const numCols = matrix[0].length;
-  let maxProduct = 0;
+function greatestProduct() {}
 
-  for (let row = 0; row < numRows; row++) {
-    for (let col = 0; col < numCols; col++) {
-      // Check horizontally (right)
-      if (col + 3 < numCols) {
-        const productHorizontal = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 3];
-        maxProduct = Math.max(maxProduct, productHorizontal);
-      }
-      
-      // Check vertically (down)
-      if (row + 3 < numRows) {
-        const productVertical = matrix[row][col] * matrix[row + 1][col] * matrix[row + 2][col] * matrix[row + 3][col];
-        maxProduct = Math.max(maxProduct, productVertical);
-      }
-    }
-  }
 
-  return maxProduct;
-}
 
-const result = greatestProduct(matrix);
-console.log(result);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

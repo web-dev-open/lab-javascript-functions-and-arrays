@@ -1,24 +1,70 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(num1, num2) {
+  if(num1>num2) return num1;
+  else
+  return num2;
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length==0)
+  return null;
+  let ans="";let len=0;let i=0;
+  for (i=0; i<words.length; i++)
+  {
+    if(words[i].length>len)
+    {
+      len=words[i].length;
+      ans=words[i];
+    }
+  }
+  return ans;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum=0;let i=0;
+  for (i=0; i<numbers.length; i++) {
+    if (typeof numbers[i] !== 'number' || Array.isArray(numbers[i]) || typeof numbers[i] === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    sum+=numbers[i];
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
+function sum(mixedArr) {
+  let sum=0;
+  let i=0;
+  for(i=0; i<mixedArr.length; i++) {
+    if (Array.isArray(mixedArr[i]) || typeof mixedArr[i] === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    if(typeof mixedArr[i] === 'string')
+    sum+=mixedArr[i].length;
+    else if(typeof mixedArr[i] === 'boolean') {
+      if(mixedArr[i] === true)
+      sum++;
+    }
+    else
+    sum+=mixedArr[i];
+  }
+  return sum;
+}
 
 
 
@@ -26,16 +72,25 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbersAvg) {
+  if(numbersAvg.length==0) return null;
+  return sum(numbersAvg)/numbersAvg.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if(wordsArr.length==0) return null;
+  return sum(wordsArr)/wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(mixedArr) {
+  if(mixedArr.length==0) return null;
+  return sum(mixedArr)/mixedArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +107,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length==0) return null;
+  let arr=[]; let i=0;
+  for (i=0;i<wordsUnique.length;i++) {
+    if( wordsUnique.indexOf(wordsUnique[i])==i )
+    arr.push(wordsUnique[i]);
+  }
+  return arr;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if(wordsFind.length==0) return null;
+  for (let w of wordsFind) {
+    if(w===word)
+    return true;
+  }
+  return false;
+}
 
 
 
@@ -78,7 +147,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let c=0;
+  for (let w of wordsCount) {
+    if(w===word)
+    c++;
+  }
+  return c;
+}
 
 
 
@@ -106,7 +182,41 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let prod=1;
+  for (let i=0;i<matrix.length;i++) {
+    for(let j=0;j<matrix[0].length-4;j++) {
+      let p=matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      prod=Math.max(prod,p);
+    }
+  }
+  for(let j=0;j<matrix[0].length;j++) {
+    for(let i=0;i<matrix.length-4;i++) {
+      let p=matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+      prod=Math.max(prod,p);
+    }
+  }
+  return prod;
+}
+
+// Bonus - Iteration #8.1: Product of diagonals
+function greatestProductOfDiagonals(matrix) {
+  let maxProduct = 0;
+  for (let i = 0; i <= matrix.length - 4; i++) {
+    for (let j = 0; j <= matrix[0].length - 4; j++) {
+      let product = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+  for (let i = 0; i <= matrix.length - 4; i++) {
+    for (let j = matrix[0].length - 1; j >= 3; j--) {
+      let product = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  return maxProduct;
+}
 
 
 

@@ -10,7 +10,7 @@ const {
   doesWordExist,
   howManyTimes,
   greatestProduct
-} = require('./../src/functions-and-arrays');
+} = require("./../src/functions-and-arrays.js");
 
 const shuffle = (currentArray) => {
   const array = [...currentArray];

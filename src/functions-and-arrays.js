@@ -1,19 +1,41 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+def maxOfTwoNumbers(a,b) {
+  if a>b:
+  return a;
+  else:
+  return b;
+  
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord() {
+  let longestword=words[0];
+  for(let i=1;i<words.length;i++){
+    if(words[i].length>longestword){
+       longestword=words[i];
+    }
+  }
+  return longestword;
+     
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers() {
+  let sum=0;
+  for(let i=0;i<numbers.length;i++){
+    sum+=numbers[i];
+  }
+  return sum;
+    
+}
 
 
 
@@ -26,13 +48,28 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  let sum=0;
+  for(let i=0;i<numbers.length;i++){
+    sum+=numbers[i];
+  }
+const average=sum/numbers.length;
+ return average;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength() {
+  let longestword=wordsArr[0];
+  for(let i=1;i<wordsArr.length;i++){
+     longestword+=word[i];
+    const averageWordLength=longestword/wordsArr.length;
+    return averageWordLength;
+}
+  
+  
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +89,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+    let uniqueWords = []; 
 
+    for (let i = 0; i < words.length; i++) {
+        if (!uniqueWords.includes(words[i])) {
+            uniqueWords.push(words[i]);  
+        }
+    }
+
+    return uniqueWords;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, wordToFind) {
+    if (words.length === 0) return false; 
+
+    return words.includes(wordToFind); 
+}
+
 
 
 
@@ -78,7 +129,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, wordToFind) {
+    if (words.length === 0) return 0; 
+
+    let count = 0; 
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] === wordToFind) {
+            count++; 
+        }
+    }
+
+    return count;
+}
 
 
 
@@ -106,7 +169,47 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+    let maxProduct = 0;
+
+    // Helper function to calculate product of four numbers
+    function productOfFour(a, b, c, d) {
+        return a * b * c * d;
+    }
+
+    const numRows = matrix.length;
+    const numCols = matrix[0].length;
+
+    for (let row = 0; row < numRows; row++) {
+        for (let col = 0; col < numCols; col++) {
+            // Check horizontally to the right
+            if (col + 3 < numCols) {
+                const product = productOfFour(matrix[row][col], matrix[row][col + 1], matrix[row][col + 2], matrix[row][col + 3]);
+                if (product > maxProduct) maxProduct = product;
+            }
+
+            // Check vertically downwards
+            if (row + 3 < numRows) {
+                const product = productOfFour(matrix[row][col], matrix[row + 1][col], matrix[row + 2][col], matrix[row + 3][col]);
+                if (product > maxProduct) maxProduct = product;
+            }
+
+            // Check diagonally to the bottom-right
+            if (row + 3 < numRows && col + 3 < numCols) {
+                const product = productOfFour(matrix[row][col], matrix[row + 1][col + 1], matrix[row + 2][col + 2], matrix[row + 3][col + 3]);
+                if (product > maxProduct) maxProduct = product;
+            }
+
+            // Check diagonally to the bottom-left
+            if (row + 3 < numRows && col - 3 >= 0) {
+                const product = productOfFour(matrix[row][col], matrix[row + 1][col - 1], matrix[row + 2][col - 2], matrix[row + 3][col - 3]);
+                if (product > maxProduct) maxProduct = product;
+            }
+        }
+    }
+
+    return maxProduct;
+}
 
 
 

@@ -1,19 +1,48 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(a,b) {
+  if(a<b){
+    return b;
+  }else{
+    return a;
+  }
+}
+console.log(maxOfTwoNumbers(5, 10));
+console.log(maxOfTwoNumbers(20, 15)); 
+console.log(maxOfTwoNumbers(7, 7)); 
 
 
 // Iteration #2: Find longest word
+// Testing the function
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+console.log(findLongestWord(words));
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+        return null; 
+    }
+    let longestWord = words[0]; 
+    for (let i = 1; i < words.length; i++) {
+        if (words[i].length > longestWord.length) {
+            longestWord = words[i]; 
+        }
+    }
+    return longestWord;
+}  
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+console.log(sumNumbers(numbers));
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    return sum; 
+}
+
 
 
 
@@ -24,21 +53,47 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+console.log(averageNumbers(numbers));
+function sumNumbers(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    return sum; 
+}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+        return null; 
+    }
+    const sum = sumNumbers(numbers); 
+    const average = sum / numbers.length;
+    return average;
+}
 
-function averageNumbers() {}
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const words = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+console.log(averageWordLength(words));
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) {
+        return null;
+    }
+    let totalLength = 0;
+    for (let i = 0; i < words.length; i++) {
+        totalLength += words[i].length;
+    }
+    const averageLength = totalLength / words.length;
+    return averageLength;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
+const words= [
   'crab',
   'poison',
   'contagious',
@@ -51,20 +106,37 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+console.log(uniquifyArray(words));
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+   const uniqueWords = [];
+    for (let i = 0; i < words.length; i++) {
+        if (uniqueWords.indexOf(words[i]) === -1){
+            uniqueWords.push(words[i]);
+        }
+    }
+    return uniqueWords;
+}
 
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
+const words= ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+console.log(doesWordExist(words, 'matter'));
+console.log(doesWordExist(words, 'hello'));
+function doesWordExist(words,wordtosearch) {
+  for (let i = 0; i < words.length; i++) {
+        if (words[i] === wordToSearch) {
+            return true;
+        }
+    }
+    return false; 
+}
 
 
 
 // Iteration #7: Count repetition
-const wordsCount = [
+const words= [
   'machine',
   'matter',
   'subset',
@@ -77,8 +149,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+console.log(howManyTimes(words, 'matter'));
+console.log(howManyTimes(words, 'machine'));
+console.log(howManyTimes(words, 'hello'));
+function howManyTimes(words,wordtosearch) {
+  let count = 0;
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] === wordToSearch) {
+            count++;
+        }
+    }
 
-function howManyTimes() {}
+    return count; 
+}
 
 
 

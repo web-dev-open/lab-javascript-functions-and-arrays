@@ -1,42 +1,130 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+ if(num1>num2){
+  return num2;
+ } else {return num2}
+}
 
 
 
 // Iteration #2: Find longest word
+
+ 
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+ 
 
-function findLongestWord() {}
+function findLongestWord(aray) {
+   if(aray.length === 0){
+  return null;
+} let longestword = aray[0];            
+for (let i=0; i<aray.length; i++){
+  if(aray[i].length > longestword.length){              //I have a doubt if two arrayelements get to have same length then what should one do??
+    longestword = aray[i];
+  }
+} return longestword;
+}
 
-
+findLongestWord(words)
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numarray) {
+  let sum=0;
+  for (let i=0; i<numarray.length; i++){
+    sum += numarray[i];
+  } return sum;
+}
 
-
+sumNumbers(numbers);
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(anyArray) {
+  let total =0;
+  for(let i=0;i<anyArray.length;i++){
+    let element = anyArray[i];
+    if(typeof element === 'number'){
+      total += element;
+    }
+    else if(typeof element === 'string'){
+      total+=element.length;
+    }
+    else if(typeof element === "boolean"){
+      if( element === true)
+        total += 1;
+    }
+  } return total;
+}
 
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
+arraySum=sum(mixedArr);
+console.log(arraySum);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arrayToCal) {
+  let sum=0;
+  for(let i=0; i<arrayToCal.length;i++)
+    {sum+=arrayToCal[i]}
+  let average;
+  average=sum/arrayToCal.lenth;
+  return average;
+}
+let avg=averageNumbers(numbersAvg);
+console.log(avg)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  let newArr=[];
+  for (let i=0;i<arr.length;i++)
+    {newArr.push(arr[i].length);}
+  let sum=0;
+  let average;
+  for(let j=0;j<newArr.length;j++){
+    sum+=newArr[j]
+  }
+  return average=sum/newArr.length;
+ }
+ let avgLenOfArr=averageWordLength(wordsArr);
+ console.log(avgLenOfArr);
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+let total=0;
+for (let i=0;i<arr.length;i++){
+  let element = arr[i];
+  if(typeof element === "number")
+    {
+      total+=element;
+    }
+  else if(typeof element === 'string')
+    {
+      total+=element.length;
+    }
+  else if(typeof element === "boolean"){
+    if(element===true)
+      total+=1
+  }
 
+}
+let avg=0;
+avg=total/arr.length;
+return avg;
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 5.7
+
+arrAvg=avg(mixedArr)
+console.log(arrAvg)
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -52,15 +140,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(arr5) {
+  let newArray=[];
+  for (let i=0;i<arr5.length;i++){
+    let isUnique=true;
+    for(let j=0; j<newArray.length;j++){
+      if(arr5[i]===newArray[j]){
+        isUnique=false;
+        arr5.indexOf(arr5[i]);
+      }
+    } if(isUnique){
+      newArray.push(arr5[i]);
+    }     
+  }
+return newArray
+}
+newArrr=uniquifyArray(wordsUnique)
+console.log(newArrr)
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(word,wordArr) {
+for(let i=0;i<wordArr.length;i++){
+  if(word===wordArr[i])
+    {return true;}
+}return false
+}
+wordExist=doesWordExist("pink",wordsFind);   // returns false
+console.log(wordExist)
 
 
 // Iteration #7: Count repetition
@@ -78,7 +187,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray,wordToSearch) {
+let times=0;
+for (let i=0;i<wordsArray.length;i++){
+  if(wordToSearch === wordsArray[i])
+    times++;
+} return times;
+}
+ 
+count=howManyTimes(wordsCount,'matter')
+console.log(count)
 
 
 
@@ -106,9 +224,56 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maxProduct = 0;
 
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
 
+  // Check horizontal products
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j <= numCols - 4; j++) {
+      let product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Check vertical products
+  for (let i = 0; i <= numRows - 4; i++) {
+    for (let j = 0; j < numCols; j++) {
+      let product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Check diagonal products (top-left to bottom-right)
+  for (let i = 0; i <= numRows - 4; i++) {
+    for (let j = 0; j <= numCols - 4; j++) {
+      let product = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Check diagonal products (top-right to bottom-left)
+  for (let i = 0; i <= numRows - 4; i++) {
+    for (let j = 3; j < numCols; j++) {
+      let product = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }                                                                   //I copied the answer from chat gpt
+  }
+
+  return maxProduct;
+}
+
+console.log(greatestProduct(matrix));
 
 
 // The following is required to make unit tests work.

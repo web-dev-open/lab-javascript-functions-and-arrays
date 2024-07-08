@@ -1,41 +1,139 @@
+// Nathan Chan - Functions and Arrays - Full-stack Dev. Program WebDevOpen
+
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null; // Return null for an empty array
+  }
 
-
+  return words.reduce((longest, current) => {
+    return current.length > longest.length ? current : longest;
+  });
+}
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  // Check if the input is an array
+  if (!Array.isArray(numbers)) {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
 
+  // If the array is empty, return 0
+  if (numbers.length === 0) {
+    return 0;
+  }
 
+  // Sum the numbers in the array
+  return numbers.reduce((sum, num) => {
+    if (typeof num === 'number' && !isNaN(num)) {
+      return sum + num;
+    } else if (typeof num === 'object' || Array.isArray(num)) {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    // Ignore other data types (like strings or booleans)
+    return sum;
+  }, 0);
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+  if (!Array.isArray(mixedArr)) {
+    throw new Error("Input must be an array");
+  }
 
-
+  return mixedArr.reduce((total, current) => {
+    if (typeof current === 'number' && !isNaN(current)) {
+      return total + current;
+    } else if (typeof current === 'string') {
+      return total + current.length;
+    } else if (typeof current === 'boolean') {
+      return total + (current ? 1 : 0);
+    } else if (typeof current === 'object' || Array.isArray(current)) {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else {
+      return total;
+    }
+  }, 0);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (!Array.isArray(numbers)) {
+    throw new Error("Input must be an array");
+  }
+
+  if (numbers.length === 0) {
+    return null;
+  }
+
+  const sum = sumNumbers(numbers);
+  return sum / numbers.length;
+}
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  // Check if the input is an array
+  if (!Array.isArray(words)) {
+    throw new Error("Input must be an array");
+  }
+
+  // If the array is empty, return null
+  if (words.length === 0) {
+    return null;
+  }
+
+  // Calculate the sum of word lengths
+  const totalLength = words.reduce((sum, word) => {
+    if (typeof word !== 'string') {
+      throw new Error("All array elements must be strings");
+    }
+    return sum + word.length;
+  }, 0);
+
+  // Calculate and return the average
+  return totalLength / words.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!Array.isArray(arr)) {
+    throw new Error("Input must be an array");
+  }
+
+  if (arr.length === 0) {
+    return null;
+  }
+
+  const sum = arr.reduce((total, current) => {
+    if (typeof current === 'number' && !isNaN(current)) {
+      return total + current;
+    } else if (typeof current === 'string') {
+      return total + current.length;
+    } else if (typeof current === 'boolean') {
+      return total + (current ? 1 : 0);
+    } else {
+      throw new Error("Unsupported data type in array");
+    }
+  }, 0);
+
+  return sum / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,19 +150,79 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  // Check if the input is an array
+  if (!Array.isArray(words)) {
+    return null;
+  }
+
+  // If the array is empty, return null
+  if (words.length === 0) {
+    return null;
+  }
+
+  // Use reduce to build a new array with unique elements
+  return words.reduce((uniqueWords, currentWord) => {
+    // Only add the word if it's not already in the uniqueWords array
+    if (uniqueWords.indexOf(currentWord) === -1) {
+      uniqueWords.push(currentWord);
+    }
+    return uniqueWords;
+  }, []);
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArr, word) {
+  // Check if the input is an array
+  if (!Array.isArray(wordsArr)) {
+    return null;
+  }
+
+  // If the array is empty, return null
+  if (wordsArr.length === 0) {
+    return null;
+  }
+
+  // Loop through the array and check for the word
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === word) {
+      return true;
+    }
+  }
+
+  // If the word is not found, return false
+  return false;
+}
 
 
 
 // Iteration #7: Count repetition
-const wordsCount = [
+function howManyTimes(wordsArr, word) {
+  // Check if the input is an array
+  if (!Array.isArray(wordsArr)) {
+    return null;
+  }
+
+  // If the array is empty, return 0
+  if (wordsArr.length === 0) {
+    return 0;
+  }
+
+  // Use reduce to count occurrences
+  return wordsArr.reduce((count, currentWord) => {
+    if (currentWord === word) {
+      return count + 1;
+    }
+    return count;
+  }, 0);
+}
+
+// Test the function
+const words = [
   'machine',
   'matter',
   'subset',
@@ -77,10 +235,6 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
-function howManyTimes() {}
-
-
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,9 +260,52 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+  const rows = matrix.length;
+  const cols = matrix[0].length;
 
+  // Helper function to calculate product of 4 numbers
+  function product(a, b, c, d) {
+    return a * b * c * d;
+  }
 
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      // Check horizontal (right)
+      if (j <= cols - 4) {
+        maxProduct = Math.max(maxProduct, product(
+          matrix[i][j], matrix[i][j+1], matrix[i][j+2], matrix[i][j+3]
+        ));
+      }
+
+      // Check vertical (down)
+      if (i <= rows - 4) {
+        maxProduct = Math.max(maxProduct, product(
+          matrix[i][j], matrix[i+1][j], matrix[i+2][j], matrix[i+3][j]
+        ));
+      }
+
+    // Bonus - Iteration #8.1: Product of diagonals
+
+      // Check diagonal (down-right)
+      if (i <= rows - 4 && j <= cols - 4) {
+        maxProduct = Math.max(maxProduct, product(
+          matrix[i][j], matrix[i+1][j+1], matrix[i+2][j+2], matrix[i+3][j+3]
+        ));
+      }
+
+      // Check diagonal (down-left)
+      if (i <= rows - 4 && j >= 3) {
+        maxProduct = Math.max(maxProduct, product(
+          matrix[i][j], matrix[i+1][j-1], matrix[i+2][j-2], matrix[i+3][j-3]
+        ));
+      }
+    }
+  }
+
+  return maxProduct;
+}
 
 
 // The following is required to make unit tests work.

@@ -82,13 +82,14 @@ describe('Calculate the sum of array of numbers', () => {
     expect(sumNumbers([])).toBe(0);
   });
 
+  test('should return zero if all elements are zero', () => {
+    expect(sumNumbers([0, 0, 0, 0, 0])).toBe(0);
+  });
+  
   test('should return the sum with one number array', () => {
     expect(sumNumbers([4])).toBe(4);
   });
 
-  test('should return zero if all elements are zero', () => {
-    expect(sumNumbers([0, 0, 0, 0, 0])).toBe(0);
-  });
 
   test('should return the sum when passed array of numbers', () => {
     expect(sumNumbers([10, 5, 4, 32, 8])).toBe(59);
@@ -219,7 +220,7 @@ describe('Unique array', () => {
   });
 });
 
-describe('Find elements', () => {
+describe('Find elements',  () => {
   test('should declare a function named doesWordExist', () => {
     expect(typeof doesWordExist).toBe('function');
   });

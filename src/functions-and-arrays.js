@@ -1,41 +1,153 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+   if(a > b){
+    return a
+   }else{
+    return b
+   }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length === 0){
+    return null
+  }else{
 
+    return words.sort((a,b)=>b.length - a.length)[0];
+  }
+} 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+    let sum = 0
+    for(let i =0 ; i<numbers.length;i++){
+        sum+=numbers[i]
+    }
+    return sum
+}
 
 
-
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
 // Iteration #3.1 Bonus:
-function sum() {}
 
+function sum(mixedArr) {
+  if(mixedArr.length === 0){
+    return 0
+  
+  } 
+    else{
+
+    return mixedArr.map((value)=>{
+     if(typeof value === 'object' || typeof value === 'array'){
+
+      throw new Error("Unsupported data type sir or ma'am") 
+     }else
+      if(typeof value === "string"){
+        return value.length 
+      }else if(value === true){ 
+        return 1  
+      }else if(value === false){
+        return 0  
+      }else{
+        return value  
+      }
+    }).reduce((acc,rec)=>acc+rec,0)
+  }
+    // } 
+
+    // let res = []
+    // let sum = 0;
+    //   for(let i = 0; i< mixedArr.length ; i++){
+    //     if(typeof mixedArr[i] === "string"){
+    //             res.push(mixedArr[i].length)
+    //           }else if(mixedArr[i] === true){ 
+    //             res.push(1)
+    //           }else if(mixedArr[i] === false){
+    //             res.push(0)
+    //           }else{
+    //             res.push(mixedArr[i])
+    //           }
+    //   }
+    //   for(let i =0;i<res.length;i++){
+    //     sum+=res[i]
+    //   }
+    //   return sum
+  }
+
+// console.log(sum());
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if(numbersAvg.length === 0){
+    return null
+  }else{
+
+    return (numbersAvg.reduce((acc,rec)=>acc+rec,0))/numbersAvg.length
+  }
+    
+  // let avg = numbersAvg.reduce((acc,rec)=>{
+  //   return acc+rec
+  // },0)
+
+  
+  // console.log(avg/numbersAvg.length);
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  if(wordsArr.length === 0){
+return null
+  }else{
+
+  //   let avgstr = wordsArr.map(word=>word.length).reduce((acc,rec)=>{
+  //     return acc+rec
+  // },0)
+  // console.log(avgstr/wordsArr.length)
+
+
+  return (wordsArr.map(word=>word.length).reduce((acc,rec)=>{
+        return acc+rec
+    },0))/wordsArr.length
+}
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if(mixedArr.length === 0){
+return null
+  }else{
+
+    return (mixedArr.map(val=>{
+      if(typeof val === 'string'){
+        return val.length
+      }else if(val === true){
+        return 1
+      }else if(val === false){
+        return 0
+      }else{
+        return val
+      }
+    }).reduce((acc,rec)=>acc+rec,0))/mixedArr.length
+  }
+}
+// console.log(avg()/mixedArr.length); 
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +164,54 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+// let set = new Set(wordsUnique)
+// // console.log(set);
+
+// let res_Arr = []
+// for (const key of set) {
+//   res_Arr.push(key)
+// }
+// console.log(res_Arr);
+if(arr.length === 0){
+  return null
+}else{
+
+  let unique = []
+  for(let i = 0; i<arr.length;i++){
+    
+    if(unique.indexOf(arr[i])=== -1){
+    unique.push(arr[i])
+  }
+}
+return unique
+}
+ }
+
+// console.log(uniquifyArray(wordsUnique));
 
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+  const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+  function doesWordExist(wordsFind,value) {
+    
+  if(wordsFind.length === 0){
+    return null
+  }else{
+
+    for(let i = 0; i<wordsFind.length ; i++){
+      if(wordsFind[i] === value){
+      return true
+
+      } 
+    }
+    return false
+  }
+  }
+  // console.log(doesWordExist(wordsFind,'trouble'));
 
 
 
@@ -78,7 +230,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,search) {
+
+
+let res_arr = []
+    wordsCount.forEach((word)=>{
+    if(word === search)
+      {
+        res_arr.push(word)
+      }
+        
+   }) 
+   return res_arr.length  
+  
+}
+// console.log(howManyTimes(wordsCount,'matter'));
 
 
 
@@ -106,9 +272,48 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+let maxProduct = 0
+  for(let i = 0 ; i < arr.length;i++){
+    
+    for(let j = 0 ; j < arr[i].length ; j++){
+
+      if(j <= arr[i].length - 4)  {         
+        let horizontalProduct = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+        if(horizontalProduct > maxProduct){
+          maxProduct = horizontalProduct
+        }
+      }
+
+      if(i <=  arr.length-4){                         
+        let verticalProduct = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j];
+        if(verticalProduct > maxProduct){
+          maxProduct = verticalProduct  
+        }
+      }
 
 
+    if (i <= arr.length - 4 && j <= arr[i].length - 4) {
+        let diagonalRightProduct = arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3];
+        if (diagonalRightProduct > maxProduct) {
+          maxProduct = diagonalRightProduct;
+        }
+      }
+
+      // Check diagonally to the bottom-left
+      if (i <= arr.length - 4 && j >= 3) {
+        let diagonalLeftProduct = arr[i][j] * arr[i + 1][j - 1] * arr[i + 2][j - 2] * arr[i + 3][j - 3];
+        if (diagonalLeftProduct > maxProduct) {
+          maxProduct = diagonalLeftProduct;
+        }
+      }
+    }
+  }
+
+  return maxProduct;
+} 
+
+// console.log(greatestProduct(matrix));
 
 
 // The following is required to make unit tests work.

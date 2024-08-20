@@ -16,7 +16,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(array) {
   let biggestLength = 0;
-  let biggestWord;
+  let biggestWord = null;
   for (let i=0; i<array.length; i++){
     if (array[i].length > biggestLength){
       biggestLength = array[i].length;
@@ -53,6 +53,9 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
+  if(array.length === 0){
+    return null;
+  }
   let sum = sumNumbers(array);
   return sum/array.length; 
 }
@@ -63,6 +66,9 @@ console.log(averageNumbers(numbersAvg));
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(array) { 
+  if(array.length === 0){
+    return null;
+  }
   let wordLength = [];
   for(let i=0; i<array.length; i++){
     wordLength[i] = array[i].length;
@@ -91,6 +97,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array) {
+  if(array.length === 0){
+    return null;
+  }
   let indexDuplicates = [];
   for(let i=0; i<array.length; i++){
     let ind = array.indexOf(array[i], i+1);
@@ -110,6 +119,9 @@ console.log(uniquifyArray(wordsUnique));
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, word) {
+  if(array.length === 0){
+    return null;
+  }
   for(let i=0; i<array.length; i++){
     if(array[i] == word){
       return true;

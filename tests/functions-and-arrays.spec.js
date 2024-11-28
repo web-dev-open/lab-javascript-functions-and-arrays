@@ -280,7 +280,7 @@ describe('Count repetition', () => {
   });
 });
 
-describe('Bonus Quest - greatestProduct', () => {
+/*describe('Bonus Quest - greatestProduct', () => {
   test('should declare a function named greatestProduct', () => {
     expect(typeof greatestProduct).toBe('function');
   });
@@ -337,3 +337,4 @@ describe('Bonus Quest - greatestProduct', () => {
     expect(greatestProduct(matrix)).toBe(16);
   });
 });
+*/

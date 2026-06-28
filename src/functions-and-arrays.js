@@ -45,7 +45,21 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0;
+  for(let i = 0; i<array.length; i++){
+    if(typeof(array[i]) === 'number'){
+      sum += array[i]
+    }else if(typeof(array[i]) === 'string'){
+      sum += array[i].length
+    }else if(typeof(array[i]) === 'boolean'){
+      sum += +array[i]
+    }else{
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+  }
+  return sum;
+}
 
 
 
@@ -53,7 +67,16 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if(!averageNumbers){
+    return null;
+  }
+  let sum = 0;
+  for(let i = 0; i<numbers.length; i++){
+    sum += numbers[i]
+  }
+  return (sum/numbersAvg.length);
+}
 
 
 // Level 2: Array of strings

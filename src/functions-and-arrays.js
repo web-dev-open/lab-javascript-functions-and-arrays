@@ -82,10 +82,36 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if(!wordsArr){
+    return null;
+  }
+  let sum = 0;
+  for(let word of wordsArr){
+    sum += word.length;
+  }
+  return (sum/wordsArr.length)
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if(!array){
+    return null;
+  }
+  let sum = 0;
+  for(let i = 0; i<array.length; i++){
+    if(typeof(array[i]) === 'number'){
+      sum += array[i]
+    }else if(typeof(array[i]) === 'string'){
+      sum += array[i].length
+    }else if(typeof(array[i]) === 'boolean'){
+      sum += +array[i]
+    }else{
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+  }
+  return (sum/array.length)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
